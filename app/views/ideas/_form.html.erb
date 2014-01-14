@@ -1,41 +1,29 @@
-<%= form_for(@idea) do |f| %>
-  <% if @idea.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@idea.errors.count, "error") %> prohibited this idea from being saved:</h2>
-
-      <ul>
-      <% @idea.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+<form>
+  <div class="row">
+    <div class="small-1 medium-2 large-2 columns"></div>
+    <div class="small-10 medium-6 large-4 columns">
+      <input type="text" placeholder="Idea Title" />
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <div class="small-1 medium-4 large-6 columns"></div>
   </div>
-  <div class="field">
-    <%= f.label :short_desc %><br>
-    <%= f.text_field :short_desc %>
+  <div class="row">
+    <div class="large-6 columns">
+      <label>Choose Your Favorite</label>
+      <input type="radio" name="category" value="Red" id="categoryRed"><label for="categoryRed">Category 1</label>
+      <input type="radio" name="category" value="Blue" id="categoryBlue"><label for="categoryBlue">Category 2</label>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :long_desc %><br>
-    <%= f.text_area :long_desc %>
+  <div class="row">
+    <div class="small-1">
+    <div class="small-10">
+      <input type="text" placeholder="Short Description" />
+    </div>
+    <div class="small-1">
   </div>
-  <div class="field">
-    <%= f.label :idea_support_url %><br>
-    <%= f.text_field :idea_support_url %>
+  <div class="row">
+    <div class="small-1">
+    <div class="small-10">
+      <input type="text" placeholder="Long Description" />
+    </div>
+    <div class="small-1">
   </div>
-  <div class="field">
-    <%= f.label :category %><br>
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :coffer %><br>
-    <%= f.number_field :coffer %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
