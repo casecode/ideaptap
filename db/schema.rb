@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20140114201131) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
-    t.integer  "user_id_id"
-    t.integer  "idea_id_id"
+    t.integer  "user_id"
+    t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20140114201131) do
     t.string   "idea_support_url"
     t.string   "category"
     t.integer  "coffer"
-    t.integer  "user_id_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,8 +45,8 @@ ActiveRecord::Schema.define(version: 20140114201131) do
 
   create_table "transactions", force: true do |t|
     t.integer  "amount"
-    t.integer  "user_id_id"
-    t.integer  "idea_id_id"
+    t.integer  "user_id"
+    t.integer  "idea_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140114201131) do
     t.string   "name"
     t.boolean  "admin"
     t.integer  "wallet"
-    t.integer  "organization_id_id"
+    t.integer  "organization_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email",                  default: "", null: false
