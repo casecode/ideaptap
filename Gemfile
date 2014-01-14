@@ -6,6 +6,9 @@ gem 'rails', '4.0.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
+# Use hirb
+gem 'hirb'
+
 # Use devise for user login
 gem 'devise'
 
