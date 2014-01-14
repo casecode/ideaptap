@@ -13,7 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
-//= require turbolinks
-//= require_tree .
+//= require riot
+//= require_tree ./app/models
+//= require_tree ./app/presenters
 
 $(function(){ $(document).foundation(); });
