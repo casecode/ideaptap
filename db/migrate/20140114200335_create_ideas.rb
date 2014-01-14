@@ -7,7 +7,7 @@ class CreateIdeas < ActiveRecord::Migration
       t.string :idea_support_url
       t.string :category
       t.integer :coffer
-      t.reference :user_id
+      t.references :user_id
 
       t.timestamps
     end

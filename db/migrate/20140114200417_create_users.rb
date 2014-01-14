@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :name
       t.boolean :admin
       t.integer :wallet
-      t.reference :organization_id
+      t.references :organization_id
 
       t.timestamps
     end
