@@ -5,7 +5,9 @@ Idea.destroy_all
 Comment.destroy_all
 puts "Destroyed all users, ideas and comments."
 
-user = [
+I18n.enforce_available_locales = false
+
+users = [
  {name: "Jim", admin: false, wallet: 75, email: "jim@example.com"},
  {name: "Bob", admin: false, wallet: 50, email: "bob@example.com"},
  {name: "Case", admin: false, wallet: 25, email: "case@example.com"},
