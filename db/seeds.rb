@@ -7,12 +7,12 @@ puts "Destroyed all users, ideas and comments."
 
 I18n.enforce_available_locales = false
 
-users = [
- {name: "Jim", admin: false, wallet: 75, email: "jim@example.com"},
- {name: "Bob", admin: false, wallet: 50, email: "bob@example.com"},
- {name: "Case", admin: false, wallet: 25, email: "case@example.com"},
- {name: "LaneLane", admin: true, wallet: 100, email: "laney@email.com"}
-]
+# users = [
+#  {name: "Jim", admin: false, wallet: 75, email: "jim@example.com", encrypted_password: "password"},
+#  {name: "Bob", admin: false, wallet: 50, email: "bob@example.com", encrypted_password: "password"},
+#  {name: "Case", admin: false, wallet: 25, email: "case@example.com", encrypted_password: "password"},
+#  {name: "LaneLane", admin: true, wallet: 100, email: "laney@email.com", encrypted_password: "password"}
+# ]
 
 ideas = [
   {title: "idea1", short_desc: "so short", long_desc: "so long", coffer: 25, user_id: 2},
@@ -29,14 +29,14 @@ comments = [
 ]
 
 
-users.each do |user|
-  User.create(
-    name: user[:name],
-    admin: user[:admin],
-    wallet: user[:wallet],
-    email: user[:email]
-  )
-end
+# users.each do |user|
+#   User.create(
+#     name: user[:name],
+#     admin: user[:admin],
+#     wallet: user[:wallet],
+#     email: user[:email]
+#   )
+# end
 
 ideas.each do |idea|
   Idea.create(
