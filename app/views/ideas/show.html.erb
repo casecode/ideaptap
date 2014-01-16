@@ -4,6 +4,29 @@
 
 </div>
 
+<!-- Idea Wall -->
+<h2>Idea Wall</h2>
+<div class="idea-wall"></div>
+
+<!-- Idea Template -->
+<div id="templates">
+  <script type="text/template" class="idea">
+    <div class="row panel radius idea">
+      <div class="small-1 columns"></div>
+      <div class="small-10 columns">
+        <h3>{ title }</h3>
+        <p>{ long_desc }</p>
+        <p><a href="{ idea_support_url }">Idea Support</a></p>
+        <p>Coffer: { coffer } taps</p>
+      </div>
+      <div class="small-1 columns"></div>
+     </div>
+  </script>
+</div>
+
+
+
+
 </br>
 
 <%= render "comments/form" %>
