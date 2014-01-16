@@ -9,7 +9,6 @@
       e.preventDefault();
 
       var newIdea = {
-        user_id: <%= current_user.id %>,
         title: $('[name=title]', $root).val(),
         category: $('[name=category]', $root).val(),
         short_desc: $('[name=short-desc]', $root).val(),
