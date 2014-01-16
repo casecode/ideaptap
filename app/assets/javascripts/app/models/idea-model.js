@@ -7,8 +7,11 @@
 
     this.create = function (newIdea) {
       var self = this;
-      ideas.push(newIdea);
-      self.trigger('create', newIdea);
+
+      $.post(g.userIdeasUrl, newIdea, function () {
+        ideas.push(newIdea);
+        self.trigger('create', newIdea);
+      });
     };
 
     this.initializeIdeas = function (initialIdeas) {

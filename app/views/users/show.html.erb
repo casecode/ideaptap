@@ -28,7 +28,7 @@
       <div class="small-10 columns">
         <h3>{ title }</h3>
         <p>{ long_desc }</p>
-        <p><a href="{ idea_support_url }">Idea Support</a></p>
+        <p class="button round"><a href="{ idea_support_url }">Idea Support</a></p>
         <p>Coffer: { coffer } taps</p>
       </div>
       <div class="small-1 columns"></div>
@@ -54,6 +54,9 @@
     ideas: userIdeas
   });
 
+  var serverIdeas = <%= raw @user.ideas.to_json %>;
+
+  userIdeas.initializeIdeas(serverIdeas);
 
 })();
 </script>

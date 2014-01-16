@@ -22,6 +22,11 @@
       </div>
     </div>
     <%= yield %>
+
+    <script type="text/javascript">
+      window.g = {};
+      g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
+    </script>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
   </body>
