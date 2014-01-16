@@ -54,6 +54,9 @@
     ideas: userIdeas
   });
 
+  var serverIdeas = <%= raw @user.ideas.to_json %>;
+
+  userIdeas.initializeIdeas(serverIdeas);
 
 })();
 </script>
