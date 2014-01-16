@@ -9,4 +9,18 @@
 
 </br>
 
-<%= render "ideas/form" %>
+<a href="#" data-reveal-id="ideaForm">Create a new idea</a>
+
+<div id="ideaForm" class="reveal-modal" data-reveal>
+  <%= render "ideas/form" %>
+</div>
+
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+(function () {
+
+
+})();
+</script>
+<% end %>

@@ -1,34 +1,64 @@
 <div class="row">
   <div class="small-12">
     <form>
+      <!-- Form Header -->
       <div class="row">
-        <div class="small-1 medium-2 large-2 columns"></div>
-        <div class="small-10 medium-6 large-4 columns">
+        <div class="small-1 columns"></div>
+        <div class="small-10 columns">
+          <h3>Tell us about your new idea!</h3>
+        </div>
+        <div class="small-1 columns"></div>
+      </div>
+      <br/>
+      <!-- Title -->
+      <div class="row">
+        <div class="small-1 columns"></div>
+        <div class="small-10 medium-8 large-6 columns">
           <input type="text" placeholder="Idea Title" />
         </div>
-        <div class="small-1 medium-4 large-6 columns"></div>
+        <div class="small-1 medium-3 large-5 columns"></div>
       </div>
+      <!-- Category -->
       <div class="row">
-        <div class="large-6 columns">
-          <label>Choose Your Favorite</label>
-          <input type="radio" name="category" value="Red" id="categoryRed"><label for="categoryRed">Category 1</label>
-          <input type="radio" name="category" value="Blue" id="categoryBlue"><label for="categoryBlue">Category 2</label>
+        <div class="small-1 columns"></div>
+        <div class="small-10 medium-8 large-6 columns">
+          <select name="ideaCategory">
+            <option value="default">Select Category...</option>
+            <option value="category1">Category 1</option>
+            <option value="category2">Category 2</option>
+            <option value="category3">Category 3</option>
+            <option value="category4">Category 4</option>
+          </select>
         </div>
-        <div class="large-6 columns"></div>
+        <div class="small-1 medium-3 large-5 columns"></div>
       </div>
+      <!-- Short Description -->
       <div class="row">
-        <div class="small-1 medium-2 large-2"></div>
-        <div class="small-10 medium-9 large-9">
+        <div class="small-12 columns">
           <input type="text" placeholder="Short Description" />
         </div>
-        <div class="small-1 medium-1 large-1"></div>
       </div>
+      <!-- Long Description -->
       <div class="row">
-        <div class="small-1 medium-2 large-2"></div>
-        <div class="small-10 medium-9 large-9">
-          <input type="text" placeholder="Long Description" />
+        <div class="small-12 columns">
+          <textarea type="text" placeholder="Long Description"></textarea>
         </div>
-        <div class="small-1 medium-1 large-1"></div>
+      </div>
+      <!-- Link to Idea Supporting Docs -->
+      <div class="row collapse">
+        <div class="small-1 medium-2 large-2 columns">
+          <span class="prefix">http://</span>
+        </div>
+        <div class="small-11 medium-10 large-10 columns">
+          <input type="text" placeholder="Link to content supporting your idea">
+        </div>
+      </div>
+      <br/>
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="small-12 columns">
+          <input class="button radius" type="submit" value="Submit your idea!">
+        </div>
       </div>
     </form>
   </div>
