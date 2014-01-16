@@ -12,9 +12,9 @@
         user_id: <%= current_user.id %>,
         title: $('[name=title]', $root).val(),
         category: $('[name=category]', $root).val(),
-        short_desc: $('[name=short_desc]', $root).val(),
-        long_desc: $('[name=long_desc]', $root).val(),
-        idea_support_url: $('[name=idea_support_url]', $root).val(),
+        short_desc: $('[name=short-desc]', $root).val(),
+        long_desc: $('[name=long-desc]', $root).val(),
+        idea_support_url: $('[name=idea-support-url]', $root).val(),
         coffer: 0
       };
 
@@ -22,6 +22,7 @@
       console.log('New idea data:', newIdea);
 
       $root.find('input[type="text"], textarea').val('');
+      $root.find('select').val('default')
     });
 
   };
