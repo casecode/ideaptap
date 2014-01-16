@@ -61,6 +61,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def idea
+    @user = current_user
+    new_idea = @user.ideas.create(idea_params)
+    render :json => new_idea.to_json, :status => 200
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -70,5 +76,9 @@ class UsersController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :admin, :wallet)
+    end
+
+    def idea_params
+      params.permit(:title, :category, :short_desc, :long_desc, :idea_support_url, :coffer)
     end
 end

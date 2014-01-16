@@ -13,4 +13,8 @@ Ideatap::Application.routes.draw do
   end
 
   resources :organizations
+
+  scope :api do
+    post 'users/ideas' => 'users#idea', :as => :user_idea_api
+  end
 end
