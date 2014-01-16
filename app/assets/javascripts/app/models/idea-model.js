@@ -7,14 +7,14 @@
 
     this.create = function (newIdea) {
       var self = this;
-      comments.push(newComment);
-      self.trigger('create', newComment);
+      ideas.push(newIdea);
+      self.trigger('create', newIdea);
     };
 
-    this.initializeWith = function (initialIdeas) {
+    this.initializeIdeas = function (initialIdeas) {
       for (var i = 0; i < initialIdeas.length; i += 1) {
-        var idea = initialComments[i];
-        comments.push(idea);
+        var idea = initialIdeas[i];
+        ideas.push(idea);
         this.trigger('create', idea);
       }
     };

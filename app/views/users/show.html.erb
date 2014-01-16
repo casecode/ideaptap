@@ -9,4 +9,52 @@
 
 </br>
 
-<%= render "ideas/form" %>
+<!-- Create modal for submitting idea form -->
+<a href="#" data-reveal-id="ideaForm">Create a new idea</a>
+
+<div id="ideaForm" class="reveal-modal" data-reveal>
+  <%= render "ideas/form" %>
+</div>
+
+<!-- Idea Wall -->
+<h2>Idea Wall</h2>
+<div class="idea-wall"></div>
+
+<!-- Idea Template -->
+<div id="templates">
+  <script type="text/template" class="idea">
+    <div class="row panel radius idea">
+      <div class="small-1 columns"></div>
+      <div class="small-10 columns">
+        <h3>{ title }</h3>
+        <p>{ long_desc }</p>
+        <p><a href="{ idea_support_url }">Idea Support</a></p>
+        <p>Coffer: { coffer } taps</p>
+      </div>
+      <div class="small-1 columns"></div>
+     </div>
+  </script>
+</div>
+
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+(function () {
+  // Create ideas model instance
+  var userIdeas = new Idea();
+
+  // Initialize IdeaForm and IdeaWall presenters
+  var formPresenter = new IdeaForm({
+    root: $('form.new-idea'),
+    ideas: userIdeas
+  });
+
+  var wallPresenter = new IdeaWall({
+    root: $('.idea-wall'),
+    ideas: userIdeas
+  });
+
+
+})();
+</script>
+<% end %>
