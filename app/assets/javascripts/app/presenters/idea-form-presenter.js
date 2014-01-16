@@ -22,7 +22,7 @@
       console.log('New idea data:', newIdea);
 
       $root.find('input[type="text"], textarea').val('');
-      $root.find('select').val('default')
+      $root.find('select').val('default');
     });
 
   };
