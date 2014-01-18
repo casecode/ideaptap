@@ -1,29 +1,29 @@
-<%= form_for(@comment) do |f| %>
-  <% if @comment.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
-
-      <ul>
-      <% @comment.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_area :body %>
+<div class="row">
+  <div class="small-12">
+    <form class="new-comment">
+      <!-- Form Header -->
+      <div class="row">
+        <div class="small-1 columns"></div>
+        <div class="small-10 columns">
+          <h4>Add a Comment</h4>
+        </div>
+        <div class="small-1 columns"></div>
+      </div>
+      <br/>
+      <!-- body -->
+      <div class="row">
+        <div class="small-10 columns"></div>
+        <div class="small-10 medium-8 large-6 columns">
+          <input name="body" type="text" placeholder="add comment here" />
+        </div>
+        <div class="small-1 medium-3 large-5 columns"></div>
+      </div>
+      <!-- Submit Button -->
+      <div class="row">
+        <div class="small-12 columns">
+          <input class="button radius" type="submit" value="Submit your Comment">
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.text_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :idea_id %><br>
-    <%= f.text_field :idea_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

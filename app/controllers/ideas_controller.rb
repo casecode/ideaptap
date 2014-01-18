@@ -10,11 +10,14 @@ class IdeasController < ApplicationController
   # GET /ideas/1
   # GET /ideas/1.json
   def show
+    @idea = Idea.find(params[:id])
+    @user = current_user
   end
 
   # GET /ideas/new
   def new
     @idea = Idea.new
+    @user = current_user
   end
 
   # GET /ideas/1/edit
@@ -25,6 +28,7 @@ class IdeasController < ApplicationController
   # POST /ideas.json
   def create
     @idea = Idea.new(idea_params)
+    @user = current_user
 
     respond_to do |format|
       if @idea.save
@@ -61,6 +65,13 @@ class IdeasController < ApplicationController
     end
   end
 
+  def comment
+    @user = current_user
+    @idea = Idea.find(params[:id])
+    new_comment = @idea.comments.create(comment_params)
+    render :json => new_comment.to_json, :status => 200
+  end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_idea
@@ -68,7 +79,7 @@ class IdeasController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def idea_params
-      params.require(:idea).permit(:title, :short_desc, :long_desc, :idea_support_url, :category, :coffer)
+    def comment_params
+      params.permit(:body, :user_id)
     end
 end
