@@ -1,32 +1,55 @@
 <p id="notice"><%= notice %></p>
-
-<div class="row">
-
-</div>
+<div class="row"></div>
+</br>
 
 <!-- Idea Wall -->
-<h2>Idea Wall</h2>
-<div class="idea-wall"></div>
+<div class="idea-wall">
+  <h2><%= @idea.title %></h2>
+</div>
+
+<%= render "comments/form" %>
+</br>
+
+
 
 <!-- Idea Template -->
 <div id="templates">
-  <script type="text/template" class="idea">
-    <div class="row panel radius idea">
+  <script type="text/template" class="comment">
+    <div class="row panel radius comment">
       <div class="small-1 columns"></div>
       <div class="small-10 columns">
-        <h3>{ title }</h3>
-        <p>{ long_desc }</p>
-        <p><a href="{ idea_support_url }">Idea Support</a></p>
-        <p>Coffer: { coffer } taps</p>
+        <p>{ body }</p>
       </div>
       <div class="small-1 columns"></div>
-     </div>
+    </div>
   </script>
 </div>
 
 
+<% content_for :javascript do %>
+<script type="text/javascript">
+(function () {
+  // Create comments model instance
+  var ideaComments = new Comment();
 
+  var currentUserID = <%= current_user.id %>;
 
-</br>
+  // Initialize CommentForm and CommentWall presenters
+  var formPresenter = new CommentForm({
+    root: $('form.new-comment'),
+    comments: ideaComments,
+    user_id: currentUserID
+  });
 
-<%= render "comments/form" %>
+  var wallPresenter = new CommentWall({
+    root: $('.idea-wall'),
+    comments: ideaComments
+  });
+
+  var serverComments = <%= raw @idea.comments.to_json %>;
+
+  ideaComments.initializeComments(serverComments);
+
+})();
+</script>
+<% end %>
