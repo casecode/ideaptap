@@ -14,10 +14,11 @@
 
 <div id="ideaForm" class="reveal-modal" data-reveal>
   <%= render "ideas/form" %>
+  <a class="close-reveal-modal">&#215;</a>
 </div>
 
 <!-- Idea Wall -->
-<h2>Idea Wall</h2>
+<h2 class="ideaWall">Idea Wall</h2>
 <div class="idea-wall"></div>
 
 <!-- Idea Template -->
@@ -39,7 +40,16 @@
 
 <% content_for :javascript do %>
 <script type="text/javascript">
+
 (function () {
+
+  // Close idea form modal on idea submit
+  $('form.new-idea').on('submit', function (e) {
+    e.preventDefault();
+    console.log("idea sumbitted");
+    $('a.close-reveal-modal').trigger('click');
+  });
+
   // Create ideas model instance
   var userIdeas = new Idea();
 
