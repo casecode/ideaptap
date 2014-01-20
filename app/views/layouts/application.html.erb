@@ -26,11 +26,6 @@
     <script type="text/javascript">
       window.g = {};
       g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
-
-
-      console.log('<%= idea_comment_api_path(@idea) %>');
-
-      g.ideaCommentsUrl = '<%= idea_comment_api_path(@idea) %>';
     </script>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>

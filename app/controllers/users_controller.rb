@@ -42,7 +42,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.html { redirect_to :back }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -67,18 +67,27 @@ class UsersController < ApplicationController
     render :json => new_idea.to_json, :status => 200
   end
 
+  def transaction
+    @user = current_user
+    new_transaction = @user.transactions.create(transaction_params)    
+    render :json => new_transaction.to_json, :status => 200
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
       params.require(:user).permit(:name, :admin, :wallet)
     end
 
     def idea_params
       params.permit(:title, :category, :short_desc, :long_desc, :idea_support_url, :coffer)
+    end
+
+    def transaction_params
+      params.permit(:amount, :idea_id)
     end
 end
