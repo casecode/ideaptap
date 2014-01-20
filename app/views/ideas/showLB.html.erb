@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+<div class="row"></div>
+</br>
+
+<!-- Idea Wall -->
+<div class="idea-wall">
+  <h2 class="red"><%= @idea.title %></h2>
+</div>
+
+<%= render "comments/form" %>
+</br>
+
+
+
+<!-- Idea Template -->
+<div id="templates">
+  <script type="text/template" class="comment">
+    <div class="row panel radius comment">
+      <div class="small-4 small-centered columns">
+        <p>{ body }</p>
+        <p>Blah blah</p>
+      </div>
+
+    </div>
+  </script>
+</div>
+
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+(function () {
+  // Create comments model instance
+  var ideaComments = new Comment();
+
+  var currentUserID = <%= current_user.id %>;
+
+  // Initialize CommentForm and CommentWall presenters
+  var formPresenter = new CommentForm({
+    root: $('form.new-comment'),
+    comments: ideaComments,
+    user_id: currentUserID
+  });
+
+  var wallPresenter = new CommentWall({
+    root: $('.idea-wall'),
+    comments: ideaComments
+  });
+
+  var serverComments = <%= raw @idea.comments.to_json %>;
+
+  ideaComments.initializeComments(serverComments);
+
+})();
+</script>
+<% end %>

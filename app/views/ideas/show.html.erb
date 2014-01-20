@@ -1,10 +1,90 @@
+
+<!-- Header and Nav -->  
+  <div class="row">
+    <div class="large-3 columns">
+      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+    </div>
+    <div class="large-9 columns">
+      <ul class="inline-list right">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- End Header and Nav -->
+  
+  
+  <div class="row">    
+    
+    <!-- Main Content Section -->
+    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+    <div class="large-9 push-3 columns">
+      
+      <h1><%= @idea.title %></h1>
+      <h4>By <%= @idea.user.name %></h4>
+      <br/>
+      <p><%= @idea.long_desc %></p>
+
+   </div>   
+      <p><%= render "comments/form" %></p>
+ 
+            
+   
+    
+    
+    <!-- Nav Sidebar -->
+    <!-- This is source ordered to be pulled to the left on larger screens -->
+    <div class="large-3 pull-9 columns">
+        
+      <ul class="side-nav">
+        <li><a href="#">Section 1</a></li>
+        <li><a href="#">Section 2</a></li>
+        <li><a href="#">Section 3</a></li>
+        <li><a href="#">Section 4</a></li>
+        <li><a href="#">Section 5</a></li>
+        <li><a href="#">Section 6</a></li>
+      </ul>
+      
+      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
+        
+    </div>
+    
+  </div>
+    
+  
+  <!-- Footer -->
+  
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr />
+      <div class="row">
+        <div class="large-6 columns">
+          <p>&copy; Copyright no one at all. Go to town.</p>
+        </div>
+        <div class="large-6 columns">
+          <ul class="inline-list right">
+            <li><a href="#">Section 1</a></li>
+            <li><a href="#">Section 2</a></li>
+            <li><a href="#">Section 3</a></li>
+            <li><a href="#">Section 4</a></li>
+          </ul>
+        </div>
+      </div>
+    </div> 
+  </footer> 
+
+
+
+
 <p id="notice"><%= notice %></p>
 <div class="row"></div>
 </br>
 
 <!-- Idea Wall -->
 <div class="idea-wall">
-  <h2><%= @idea.title %></h2>
+  <h2 class="red"><%= @idea.title %></h2>
 </div>
 
 <%= render "comments/form" %>
@@ -16,11 +96,11 @@
 <div id="templates">
   <script type="text/template" class="comment">
     <div class="row panel radius comment">
-      <div class="small-1 columns"></div>
-      <div class="small-10 columns">
+      <div class="small-4 small-centered columns">
         <p>{ body }</p>
+        <p>Blah blah</p>
       </div>
-      <div class="small-1 columns"></div>
+
     </div>
   </script>
 </div>
