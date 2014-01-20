@@ -83,9 +83,38 @@
 </br>
 
 <!-- Idea Wall -->
-<div class="idea-wall">
-  <h2 class="red"><%= @idea.title %></h2>
+<div class="idea-show">
+  <h2><%= @idea.title %></h2>
 </div>
+
+<!-- Taps Slider -->
+<div class="row" id="taps-slider">
+  <div class="small-1 medium-2 large-3 columns"></div>
+  <div class="small-10 medium-8 large-6 columns">
+    <div id="slider">
+      0 taps
+      <input id="taps-slider" type="range" min="0" max="<%= current_user.wallet %>" step="1" value="0" />
+      <span id="wallet-max"><%= current_user.wallet %></span> taps
+    </div><br/>
+    <div id="contribution">Contribution Amount: <span id="contribution-amount">0</span> taps</div>
+    <div class="button small radius" id="contribute-taps">Contribute!</div>
+  </div>
+  <div class="small-1 medium-2 large-3 columns"></div>
+</div>
+<br/>
+
+<!-- Hidden forms for updating current_user.wallet and @idea.coffer -->
+<%= form_for(current_user, remote: true) do |f| %>
+  <%= f.number_field :wallet, style: "#{'display:none'}" %>
+<% end %>
+
+<%= form_for(@idea, remote: true) do |f| %>
+  <%= f.number_field :coffer, style: "#{'display:none'}" %>
+<% end %>
+
+<br/>
+
+<div class="comment-wall"></div>
 
 <%= render "comments/form" %>
 </br>
@@ -109,6 +138,66 @@
 <% content_for :javascript do %>
 <script type="text/javascript">
 (function () {
+
+  ////////////////////////
+  // TAPS CONTRIBUTIONS //
+  ////////////////////////
+
+  // Set POST route for new transactions
+  g.userTransactionUrl = '<%= user_transaction_api_path(current_user) %>'
+
+  // Update contribution amount on slide event
+  var $tapsSlider = $('input#taps-slider');
+  
+  $($tapsSlider).change(function(e) {
+    e.preventDefault;
+    var newVal = $(this).val();
+    $('#contribution-amount').text(newVal);
+  });
+
+  // Update database when contribution made
+  $('#contribute-taps').on('click', function(e) {
+    e.preventDefault;
+    var contributionAmount = $tapsSlider.val();
+    var ideaID = '<%= @idea.id %>';
+
+    // Deduct contribution amount from current_user.wallet
+    var $userWallet = $('input#user_wallet');
+    var walletBegBal = $userWallet.val();
+    var walletNewBal = (walletBegBal - contributionAmount);
+    $userWallet.val(walletNewBal);
+
+    // Add contribution amount to @idea.coffer
+    var $ideaCoffer = $('input#idea_coffer');
+    var cofferBegBal = $ideaCoffer.val();
+    $ideaCoffer.val(cofferBegBal - (-1*contributionAmount));
+
+    // POST request for new transaction and trigger PUT request for user and idea
+    var newTransaction = {
+      amount: contributionAmount,
+      idea_id: ideaID
+    };
+    $.post(g.userTransactionUrl, newTransaction, function() {
+      $('form.edit_user, form.edit_idea').trigger('submit');
+      console.log("Transaction posted to database.");
+      // Reset defaults without needing refresh
+      $('span#wallet-max').text(walletNewBal);
+      $('input#taps-slider').attr('max', walletNewBal);
+      $tapsSlider.val(0);
+      $('#contribution-amount').text(0);
+    });
+
+
+  });
+
+
+  //////////////
+  // COMMENTS //
+  //////////////
+
+  // Set POST route for new comments
+  g.ideaCommentsUrl = '<%= idea_comment_api_path(@idea) %>';
+
   // Create comments model instance
   var ideaComments = new Comment();
 
@@ -122,7 +211,7 @@
   });
 
   var wallPresenter = new CommentWall({
-    root: $('.idea-wall'),
+    root: $('.comment-wall'),
     comments: ideaComments
   });
 
