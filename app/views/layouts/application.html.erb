@@ -11,16 +11,31 @@
   </head>
 
   <body>
-    <div class="row">
-      <div class="small-8 medium-9 large-10 columns"></div>
-      <div class="small-4 medium-3 large-2 columns">
-        <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-        <% else %>
-          <%= link_to 'Login', new_user_session_path %>
-        <% end %>
-      </div>
+    <!-- Navbar -->
+    <nav class="top-bar" data-topbar>
+      <section class="top-bar-section">
+        <ul class="right">
+          <% if user_signed_in? %>
+            <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
+          <% else %>
+            <li><a href="#" data-dropdown="signin">Sign In</a></li>
+          <% end %>
+        </ul>
+      </section>
+    </nav>
+    <!-- Sign In Dropdown -->
+    <div id="signin" class="f-dropdown small content" data-dropdown-content>
+      <%= form_for(:user, :url => session_path(:user)) do |f| %>
+        <%= f.text_field :email, placeholder: 'email' %>
+        <%= f.password_field :password, placeholder: 'password' %>
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+        <%= f.submit 'Sign in' %>
+        <%= link_to "Forgot your password?", new_password_path(:user) %>
+      <% end %>
     </div>
+
+
     <%= yield %>
 
     <script type="text/javascript">
