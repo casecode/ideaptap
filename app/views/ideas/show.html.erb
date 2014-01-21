@@ -78,19 +78,19 @@
   // Update database when contribution made
   $('#contribute-taps').on('click', function(e) {
     e.preventDefault;
-    var contributionAmount = $tapsSlider.val();
+    var contributionAmount = +$tapsSlider.val();
     var ideaID = '<%= @idea.id %>';
 
     // Deduct contribution amount from current_user.wallet
     var $userWallet = $('input#user_wallet');
-    var walletBegBal = $userWallet.val();
+    var walletBegBal = +$userWallet.val();
     var walletNewBal = (walletBegBal - contributionAmount);
     $userWallet.val(walletNewBal);
 
     // Add contribution amount to @idea.coffer
     var $ideaCoffer = $('input#idea_coffer');
-    var cofferBegBal = $ideaCoffer.val();
-    $ideaCoffer.val(cofferBegBal - (-1*contributionAmount));
+    var cofferBegBal = +$ideaCoffer.val();
+    $ideaCoffer.val(cofferBegBal + contributionAmount);
 
     // POST request for new transaction and trigger PUT request for user and idea
     var newTransaction = {
