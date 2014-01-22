@@ -8,40 +8,20 @@
 
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
     <!-- Navbar -->
-    <nav class="top-bar" data-topbar>
-      <section class="top-bar-section">
-        <ul class="right">
-          <%= user_logged_in do %>
-            <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
-          <% end %>
-          <%= user_logged_out do %>
-            <li><a href="#" data-dropdown="signin">Sign In</a></li>
-          <% end %>
-        </ul>
-      </section>
-    </nav>
-    <!-- Sign In Dropdown -->
-    <div id="signin" class="f-dropdown small content" data-dropdown-content>
-      <%= form_for(:user, :url => session_path(:user)) do |f| %>
-        <%= f.text_field :email, placeholder: 'email' %>
-        <%= f.password_field :password, placeholder: 'password' %>
-        <%= f.check_box :remember_me %>
-        <%= f.label :remember_me %>
-        <%= f.submit 'Sign in' %>
-        <%= link_to "Forgot your password?", new_password_path(:user) %>
-      <% end %>
-    </div>
+    <%= render 'layouts/navbar' %>
 
 
     <%= yield %>
 
     <script type="text/javascript">
-      window.g = {};
-      g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
+    // Set global api paths
+    window.g = {};
+    g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
     </script>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>
