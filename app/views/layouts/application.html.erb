@@ -15,9 +15,10 @@
     <nav class="top-bar" data-topbar>
       <section class="top-bar-section">
         <ul class="right">
-          <% if user_signed_in? %>
+          <%= user_logged_in do %>
             <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
-          <% else %>
+          <% end %>
+          <%= user_logged_out do %>
             <li><a href="#" data-dropdown="signin">Sign In</a></li>
           <% end %>
         </ul>
