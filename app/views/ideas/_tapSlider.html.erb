@@ -1,0 +1,18 @@
+<!-- Taps Slider -->
+<div class="row" id="taps-slider">
+  <h4>Contribute to this idea:</h4>
+  <div id="slider">
+    0 taps
+    <input id="taps-slider" type="range" min="0" max="<%= current_user.wallet %>" step="1" value="0" />
+    <span id="wallet-max"><%= current_user.wallet %></span> taps
+  </div>
+  <br/>
+  <div id="contribution">
+    Contribution Amount: <span id="contribution-amount">0</span> taps
+  </div>
+  <br/>
+  <div class="button small radius" id="contribute-taps">
+    Contribute!
+  </div>
+</div>
+

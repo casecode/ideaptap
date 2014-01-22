@@ -8,7 +8,7 @@
 
     comments.on('create', function (newComment) {
       var newHtml = $.render(commentTemplate, newComment);
-      $root.append(newHtml);
+      $root.prepend(newHtml);
     });
   };
 

@@ -1,8 +1,19 @@
+<dl class="tabs" data-tab>
+  <dd class="active"><a href="#panel2-1">Tab 1</a></dd>
+  <dd><a href="#panel2-2">Tab 2</a></dd>
+  <dd><a href="#panel2-3">Tab 3</a></dd>
+  <dd><a href="#panel2-4">Tab 4</a></dd>
+</dl>
+<div class="tabs-content large-12 columns">
+  <div class="content active" id="panel2-1">
+ 
+
+
 
 <!-- Header and Nav -->  
-  <div class="row">
+<!--   <div class="row">
     <div class="large-3 columns">
-      <h1><img src="http://placehold.it/400x100&text=Logo" /></h1>
+      <h1><img src="http://placehold.it/400x100&text=IdeaTap" /></h1>
     </div>
     <div class="large-9 columns">
       <ul class="inline-list right">
@@ -11,97 +22,35 @@
         <li><a href="#">Section 3</a></li>
       </ul>
     </div>
-  </div>
+  </div> -->
   
   <!-- End Header and Nav -->
   
-  
+  <!-- Main Content Section -->
   <div class="row">    
-    
-    <!-- Main Content Section -->
-    <!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
-    <div class="large-9 push-3 columns">
-      
+    <div class="small-0 medium-2 large-2 columns">
+      <div><%= image_tag('money.gif') %></div>
+      <div><%= image_tag('sales.png') %></div>
+      <div><%= image_tag('production.png') %></div>
+      <div><%= image_tag('header_artwork.png') %></div>
+      <div><%= image_tag('cdetorres_IBM_icons2_hero_06.png') %></div>
+      <div><%= image_tag('2-IBM_electronic-industry.jpg') %></div>
+      <div><%= image_tag('us__none__energy__smart_grid_icon__350x240.jpg') %></div>
+      <div><%= image_tag('mobile_icon_620.png.png') %></div>
+      <div><%= image_tag('hr.gif') %></div>
+    </div>
+    <div class="small-12 medium-6 large-7 columns">
       <h1><%= @idea.title %></h1>
       <h4>By <%= @idea.user.name %></h4>
-      <br/>
       <p><%= @idea.long_desc %></p>
-
-   </div>   
-      <p><%= render "comments/form" %></p>
- 
-            
-   
-    
-    
-    <!-- Nav Sidebar -->
-    <!-- This is source ordered to be pulled to the left on larger screens -->
-    <div class="large-3 pull-9 columns">
-        
-      <ul class="side-nav">
-        <li><a href="#">Section 1</a></li>
-        <li><a href="#">Section 2</a></li>
-        <li><a href="#">Section 3</a></li>
-        <li><a href="#">Section 4</a></li>
-        <li><a href="#">Section 5</a></li>
-        <li><a href="#">Section 6</a></li>
-      </ul>
-      
-      <p><img src="http://placehold.it/320x240&text=Ad" /></p>
-        
+      <br/>
+      <div><%= render "comments/form" %></div>
     </div>
-    
+    <div class="small-0 medium-4 large-3 columns">
+      <div><%= render "ideas/tapSlider" %></div>
+    </div>   
   </div>
     
-  
-  <!-- Footer -->
-  
-  <footer class="row">
-    <div class="large-12 columns">
-      <hr />
-      <div class="row">
-        <div class="large-6 columns">
-          <p>&copy; Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="large-6 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-            <li><a href="#">Section 4</a></li>
-          </ul>
-        </div>
-      </div>
-    </div> 
-  </footer> 
-
-
-
-
-<p id="notice"><%= notice %></p>
-<div class="row"></div>
-</br>
-
-<!-- Idea Wall -->
-<div class="idea-show">
-  <h2><%= @idea.title %></h2>
-</div>
-
-<!-- Taps Slider -->
-<div class="row" id="taps-slider">
-  <div class="small-1 medium-2 large-3 columns"></div>
-  <div class="small-10 medium-8 large-6 columns">
-    <div id="slider">
-      0 taps
-      <input id="taps-slider" type="range" min="0" max="<%= current_user.wallet %>" step="1" value="0" />
-      <span id="wallet-max"><%= current_user.wallet %></span> taps
-    </div><br/>
-    <div id="contribution">Contribution Amount: <span id="contribution-amount">0</span> taps</div>
-    <div class="button small radius" id="contribute-taps">Contribute!</div>
-  </div>
-  <div class="small-1 medium-2 large-3 columns"></div>
-</div>
-<br/>
 
 <!-- Hidden forms for updating current_user.wallet and @idea.coffer -->
 <%= form_for(current_user, remote: true) do |f| %>
@@ -112,27 +61,64 @@
   <%= f.number_field :coffer, style: "#{'display:none'}" %>
 <% end %>
 
-<br/>
-
-<div class="comment-wall"></div>
-
-<%= render "comments/form" %>
-</br>
-
+<!-- Comment Wall -->
+<div class="row">
+  <div class="small-0 medium-2 large-2 columns">&nbsp</div>
+  <div class="small-12 medium-6 large-7 columns">
+    <div class="comment-wall"></div>
+  </div>
+  <div class="small-0 medium-4 large-3 columns">&nbsp</div>
+</div>
 
 
 <!-- Idea Template -->
 <div id="templates">
   <script type="text/template" class="comment">
     <div class="row panel radius comment">
-      <div class="small-4 small-centered columns">
+      <div class="small-1 columns"></div>
+      <div class="small-10 small columns">
+        <p><%= @idea.user.name %></p>
         <p>{ body }</p>
-        <p>Blah blah</p>
       </div>
-
+      <div class="small-1 columns"></div>
     </div>
   </script>
 </div>
+
+<!-- Footer -->
+<!-- <footer class="row">
+  <div class="large-12 columns">
+    <hr />
+    <div class="row">
+      <div class="large-6 columns">
+        <p>&copy; Copyright no one at all. Go to town.</p>
+      </div>
+      <div class="large-6 columns">
+        <ul class="inline-list right">
+          <li><a href="#">Section 1</a></li>
+          <li><a href="#">Section 2</a></li>
+          <li><a href="#">Section 3</a></li>
+          <li><a href="#">Section 4</a></li>
+        </ul>
+      </div>
+    </div>
+  </div> 
+</footer>  -->
+
+
+   
+  </div>
+  <div class="content" id="panel2-2">
+    <p>Second panel content goes here...</p>
+  </div>
+  <div class="content" id="panel2-3">
+    <p>Third panel content goes here...</p>
+  </div>
+  <div class="content" id="panel2-4">
+    <p>Fourth panel content goes here...</p>
+  </div>
+</div>
+
 
 
 <% content_for :javascript do %>
@@ -186,11 +172,7 @@
       $tapsSlider.val(0);
       $('#contribution-amount').text(0);
     });
-
-
   });
-
-
   //////////////
   // COMMENTS //
   //////////////
