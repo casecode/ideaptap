@@ -2,7 +2,7 @@
   <section class="top-bar-section">
     <ul class="right">
       <%= user_logged_out do %>
-        <li><a href="#" data-dropdown="signin">Sign In</a></li>
+        <li><a name="signin-dropdown" href="#" data-dropdown="signin">Sign in</a></li>
       <% end %>
       <%= user_logged_in do %>
         <li><%= link_to('Sign Out', destroy_user_session_path, :method => :delete) %></li>
@@ -12,9 +12,10 @@
 </nav>
 
 <!-- Sign In Dropdown -->
-<div id="signin" class="f-dropdown small content" data-dropdown-content>
+<div id="signin" name="signin" class="f-dropdown small content" data-dropdown-content>
   <!-- Sign In Form -->
   <h5>Sign in</h5>
+  <br/>
   <%= form_for(:user, :url => session_path(:user)) do |f| %>
     <%= f.text_field :email, placeholder: 'email' %>
     <%= f.password_field :password, placeholder: 'password' %>
@@ -23,10 +24,16 @@
     <%= f.submit 'Sign in', :class => 'button tiny' %>
   <% end %>
   <hr>
-  <!-- Password Reset Form -->
-  <h5>Forgot password?</h5>
+  <div class="button tiny alert" id="forgot-button">Forgot password?</div>
+</div>
+
+<div name="forgot-password" class="f-dropdown small content" data-dropdown-content>
+  <h5>Retrieve password</h5>
+  <br/>
   <%= form_for(:user, :url => new_password_path(:user), :html => { :method => :post }) do |f| %>
     <%= f.email_field :email, placeholder: 'email' %>
     <%= f.submit "Send me reset password instructions", :class => 'button tiny' %>
   <% end %>
+  <hr>
+  <div class="button tiny alert" id="back-to-signin-button">Back to sign in</div>
 </div>
