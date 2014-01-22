@@ -2,9 +2,24 @@
 <script type="text/javascript">
 (function () {
 
-  // This is dummy code just to see how the asset pipeline works
-  var message = "Welcome to Ideatap!"
-  alert(message);
+  // Move back and forth between sign in and forgot password dropdowns
+  var clickSignin = function() { $('[name="signin-dropdown"]').trigger('click'); };
+  
+  $('#forgot-button').on('click', function(e) {
+    e.preventDefault;
+    clickSignin();
+    $('[name="signin"]').removeAttr('id');
+    $('[name="forgot-password"]').attr('id', 'signin');
+    clickSignin();
+  });
+
+  $('#back-to-signin-button').on('click', function(e) {
+    e.preventDefault;
+    clickSignin();
+    $('[name="forgot-password"]').removeAttr('id');
+    $('[name="signin"]').attr('id', 'signin');
+    clickSignin();
+  });
 
 })();
 </script>

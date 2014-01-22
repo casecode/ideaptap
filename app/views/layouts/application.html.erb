@@ -8,24 +8,20 @@
 
     <%= stylesheet_link_tag "application" %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
-    <div class="row">
-      <div class="small-8 medium-9 large-10 columns"></div>
-      <div class="small-4 medium-3 large-2 columns">
-        <% if user_signed_in? %>
-          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
-        <% else %>
-          <%= link_to 'Login', new_user_session_path %>
-        <% end %>
-      </div>
-    </div>
+    <!-- Navbar -->
+    <%= render 'layouts/navbar' %>
+
+
     <%= yield %>
 
     <script type="text/javascript">
-      window.g = {};
-      g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
+    // Set global api paths
+    window.g = {};
+    g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
     </script>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>

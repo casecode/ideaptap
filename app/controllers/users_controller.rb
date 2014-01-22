@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user_for_dashboard, only: [:show]
 
   # GET /users
   # GET /users.json
@@ -89,5 +90,11 @@ class UsersController < ApplicationController
 
     def transaction_params
       params.permit(:amount, :idea_id)
+    end
+
+    def authenticate_user_for_dashboard
+      if current_user != @user
+        redirect_to user_path(current_user)
+      end
     end
 end
