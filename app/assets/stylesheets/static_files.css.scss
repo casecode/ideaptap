@@ -3,7 +3,9 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .background {
-	background-image: url('lightbulb.jpg');
-	background-size: 100%;
+	background-image: url('header_artwork.png');
+	background-size: 70%;
 	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
 }
