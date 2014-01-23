@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="background" lang="en">
+<html class="landing-bg-fullsize" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,14 +14,10 @@
   <body>
     <!-- Navbar -->
     <%= render 'layouts/navbar' %>
-
-
+        
     <%= yield %>
 
     <script type="text/javascript">
-    // Set global api paths
-    window.g = {};
-    g.userIdeasUrl = '<%= user_idea_api_path(current_user) %>';
     </script>
     <%= javascript_include_tag "application" %>
     <%= yield :javascript %>

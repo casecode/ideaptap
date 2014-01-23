@@ -9,3 +9,42 @@
 	background-position: center;
 	background-attachment: fixed;
 }
+
+.landing-bg-fullsize {
+	background-image: url('header_artwork.png');
+	background-size: 75%;
+	background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position: center center;
+}
+
+.landing-bg-reduced {
+  @media only screen and (min-width : 768px) {
+    background-image: url('header_artwork.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-position: 5% center;
+    z-index: 10;
+  }
+  @media only screen and (max-width : 767px) {
+    background: none;
+  }
+}
+
+
+div.row#about-box {
+  #about-contents {
+    text-align: center;
+    margin: 0 auto;
+  }
+  @media only screen and (min-device-width : 768px) {
+    float: right;
+    width: 40%;
+    padding-top: 100px;
+  }
+  @media only screen and (max-width : 767px) {
+    width: 100%;
+    padding-top: 25px;
+  }
+}
