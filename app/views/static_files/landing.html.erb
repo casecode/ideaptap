@@ -1,25 +1,47 @@
+<div class="row" id="about-box" style="display:none">
+  <div class="small-1 columns">&nbsp</div>
+  <div class="small-10 columns" id="about-contents">
+    <h3>About IdeaTap</h3>
+    <p>Yadda Yadda Yadda</p>
+    <p>Yadda Yadda Yadda</p>
+    <p>Yadda Yadda Yadda</p>
+    <p>Yadda Yadda Yadda</p>
+  </div>
+  <div class="small-1 columns">&nbsp</div>
+</div>
+
+
 <% content_for :javascript do %>
 <script type="text/javascript">
 (function () {
 
   // Move back and forth between sign in and forgot password dropdowns
   var clickSignin = function() { $('[name="signin-dropdown"]').trigger('click'); };
+  var $signin = $('[name="signin"]');
+  var $forgotPassowrd = $('[name="forgot-password"]');
   
   $('#forgot-button').on('click', function(e) {
     e.preventDefault;
     clickSignin();
-    $('[name="signin"]').removeAttr('id');
-    $('[name="forgot-password"]').attr('id', 'signin');
+    $signin.removeAttr('id');
+    $forgotPassowrd.attr('id', 'signin');
     clickSignin();
   });
 
   $('#back-to-signin-button').on('click', function(e) {
     e.preventDefault;
     clickSignin();
-    $('[name="forgot-password"]').removeAttr('id');
-    $('[name="signin"]').attr('id', 'signin');
+    $forgotPassowrd.removeAttr('id');
+    $signin.attr('id', 'signin');
     clickSignin();
   });
+
+  // Display about info on click event
+  $('[name="about-button"]').on('click', function(e) {
+    e.preventDefault;
+    $('html').toggleClass('landing-bg-reduced');
+    $('#about-box').toggle();
+  })
 
 })();
 </script>
