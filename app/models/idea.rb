@@ -15,4 +15,6 @@ class Idea < ActiveRecord::Base
       user_id: self.user_id
     }
   end
+
+  
 end

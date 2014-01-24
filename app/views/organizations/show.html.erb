@@ -1,14 +1,36 @@
-<p id="notice"><%= notice %></p>
+<div class="row" style="padding-top:20px">    
+  <div class="small-0 medium-3 large-2 columns">
+    <div id="catImage1">
+      <%= image_tag('sales.png') %>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-4 columns">
+    <div id="catImage1">
+      <h3>Business Development</h3>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-2 columns">
+    <div id="catImage2">
+      <%= image_tag('production.png') %>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-4 columns">
+    <div id="catImage1">
+      <h3>Production</h3>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @organization.name %>
-</p>
+<div class="row">
+  <div class="small-0 medium-3 large-2"></div>
+  <div class="small-0 medium-3 large-2">
+    <div id="Cat1Ideas">
+      <% if (Ideas.category == 1 ) %>
+      <%  
+  </div>
 
-<p>
-  <strong>Logo url:</strong>
-  <%= @organization.logo_url %>
-</p>
 
-<%= link_to 'Edit', edit_organization_path(@organization) %> |
-<%= link_to 'Back', organizations_path %>
+  
+
+
+array_of_objects.sort_by(&:virtual_attribute)
