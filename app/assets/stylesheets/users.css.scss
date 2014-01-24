@@ -6,6 +6,10 @@ p.button a {
   color: white;
 }
 
+p.button a:hover {
+  background: none;
+}
+
 dl.tabs.vertical, div.tabs-content.vertical {
   width: 100%;
 }

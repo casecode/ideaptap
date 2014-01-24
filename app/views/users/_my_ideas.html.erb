@@ -1,5 +1,5 @@
 <!-- Create modal for submitting idea form -->
-<!-- <a href="#" data-reveal-id="ideaForm">Create a new idea</a> -->
+
 
 <div id="ideaForm" class="reveal-modal" data-reveal>
   <%= render "ideas/form" %>
@@ -7,8 +7,21 @@
 </div>
 
 <!-- Idea Wall -->
-<h2 class="ideaWall">Idea Wall</h2>
+<div class="row">
+  <div class="small-3 columns">
+    <h2 class="ideaWall">My Ideas</h2>
+  </div>
+  <div class="small-3 columns">
+    <a class="button alert tiny radius" href="#" data-reveal-id="ideaForm" style="margin-top:15px">Create a new idea</a>
+  </div>
+  <div class="small-6 columns">
+    
+  </div>
+</div>
+
+
 <div class="idea-wall"></div>
+
 
 <!-- Idea Template -->
 <div id="templates">
@@ -18,11 +31,12 @@
       <div class="small-10 columns">
         <h3>{ title }</h3>
         <p>{ long_desc }</p>
-        <p class="button round"><a href="{ idea_support_url }">Idea Support</a></p>
+        <p class="button tiny radius"><a href="{ idea_support_url }">Idea Support</a></p>
         <p>Coffer: { coffer } taps</p>
       </div>
       <div class="small-1 columns"></div>
      </div>
+     <br/>
   </script>
 </div>
 
