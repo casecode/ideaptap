@@ -1,73 +1,46 @@
-<p id="notice"><%= notice %></p>
-
+<!-- 
 <div class="row">
   <div class="small-12">
     <%= link_to 'Edit', edit_user_path(@user) %> |
     <%= link_to 'Back', users_path %>
   </div>
 </div>
-
-</br>
-
-<!-- Create modal for submitting idea form -->
-<a href="#" data-reveal-id="ideaForm">Create a new idea</a>
-
-<div id="ideaForm" class="reveal-modal" data-reveal>
-  <%= render "ideas/form" %>
-  <a class="close-reveal-modal">&#215;</a>
+ -->
+<div class="row" id="dashboard-row">
+  <div class="small-12 columns">
+    <dl class="tabs vertical" data-tab>
+      <h3 id="my-dashboard">My dashboard</h3>
+      <hr>
+      <dd class="active"><a class="tab-panel" href="#panel1">My ideas</a></dd>
+      <hr>
+      <dd><a class="tab-panel" href="#panel2">My company's ideas</a></dd>
+      <hr>
+      <dd><a class="tab-panel" href="#panel3">My contributions</a></dd>
+      <hr>
+      <%= admin_rights do %>
+        <dd><a class="tab-panel" href="#panel4">Admin dashboard</a></dd>
+      <% end %>
+      <hr>
+    </dl>
+  </div>
 </div>
 
-<!-- Idea Wall -->
-<h2 class="ideaWall">Idea Wall</h2>
-<div class="idea-wall"></div>
-
-<!-- Idea Template -->
-<div id="templates">
-  <script type="text/template" class="idea">
-    <div class="row panel radius idea">
-      <div class="small-1 columns"></div>
-      <div class="small-10 columns">
-        <h3>{ title }</h3>
-        <p>{ long_desc }</p>
-        <p class="button round"><a href="{ idea_support_url }">Idea Support</a></p>
-        <p>Coffer: { coffer } taps</p>
+<div class="row" id="panel-row">
+  <div class="small-12 columns">
+    <div class="tabs-content vertical">
+      <div class="content active" id="panel1">
+        <%= render 'my_ideas' %>
       </div>
-      <div class="small-1 columns"></div>
-     </div>
-  </script>
-</div>
+      <div class="content" id="panel2">
+        <p>Panel 2 content goes here.</p>
+      </div>
+      <div class="content" id="panel3">
+        <p>Panel 3 content goes here.</p>
+      </div>
+      <div class="content" id="panel4">
+        <p>Panel 4 content goes here.</p>
+      </div>
+    </div>
+  </div>
+<div>
 
-
-<% content_for :javascript do %>
-<script type="text/javascript">
-
-(function () {
-
-  // Close idea form modal on idea submit
-  $('form.new-idea').on('submit', function (e) {
-    e.preventDefault();
-    console.log("idea sumbitted");
-    $('a.close-reveal-modal').trigger('click');
-  });
-
-  // Create ideas model instance
-  var userIdeas = new Idea();
-
-  // Initialize IdeaForm and IdeaWall presenters
-  var formPresenter = new IdeaForm({
-    root: $('form.new-idea'),
-    ideas: userIdeas
-  });
-
-  var wallPresenter = new IdeaWall({
-    root: $('.idea-wall'),
-    ideas: userIdeas
-  });
-
-  var serverIdeas = <%= raw @user.ideas.to_json %>;
-
-  userIdeas.initializeIdeas(serverIdeas);
-
-})();
-</script>
-<% end %>

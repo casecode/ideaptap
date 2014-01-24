@@ -1,3 +1,61 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+p.button a {
+  color: white;
+}
+
+p.button a:hover {
+  background: none;
+}
+
+dl.tabs.vertical, div.tabs-content.vertical {
+  width: 100%;
+}
+
+dd a.tab-panel {
+  background: none;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+dd a.tab-panel:hover {
+  background: #d2c03d;
+}
+
+hr {
+  margin: 0px auto;
+}
+
+#my-dashboard {
+  padding: 40px 0px 20px 32px;
+  margin: 0px;
+}
+
+div.tabs-content.vertical div.content {
+  width: 100%;
+  padding: 30px;
+  margin: 0px;
+}
+
+div#dashboard-row {
+  @media only screen and (min-width : 768px) {
+    width: 25%;
+    float: left;
+    position: fixed;
+  }
+  @media only screen and (max-width : 767px) {
+    width: 100%;
+  }
+}
+
+div#panel-row {
+  @media only screen and (min-width : 768px) {
+    width: 75%;
+    float: right;
+  }
+  @media only screen and (max-width : 767px) {
+    width: 100%;
+  }
+}

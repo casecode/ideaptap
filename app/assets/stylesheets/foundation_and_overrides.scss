@@ -995,3 +995,28 @@
 div.row {
 	max-width: none;
 }
+
+nav.top-bar {
+  background-color: #184363;
+  a.nav-link {
+  background-color: #184363;
+  }
+}
+
+.button {
+  background-color: #184363;
+}
+
+.button:hover, .button:focus {
+  background-color: #d2c03d;
+}
+
+.button.alert {
+  background-color: #5c0038;
+}
+
+.button.alert:hover, .button.alert:focus {
+  background-color: #900055;
+}
+
+

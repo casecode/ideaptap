@@ -1,0 +1,76 @@
+<!-- Create modal for submitting idea form -->
+
+
+<div id="ideaForm" class="reveal-modal" data-reveal>
+  <%= render "ideas/form" %>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
+
+<!-- Idea Wall -->
+<div class="row">
+  <div class="small-3 columns">
+    <h2 class="ideaWall">My Ideas</h2>
+  </div>
+  <div class="small-3 columns">
+    <a class="button alert tiny radius" href="#" data-reveal-id="ideaForm" style="margin-top:15px">Create a new idea</a>
+  </div>
+  <div class="small-6 columns">
+    
+  </div>
+</div>
+
+
+<div class="idea-wall"></div>
+
+
+<!-- Idea Template -->
+<div id="templates">
+  <script type="text/template" class="idea">
+    <div class="row panel radius idea">
+      <div class="small-1 columns"></div>
+      <div class="small-10 columns">
+        <h3>{ title }</h3>
+        <p>{ long_desc }</p>
+        <p class="button tiny radius"><a href="{ idea_support_url }">Idea Support</a></p>
+        <p>Coffer: { coffer } taps</p>
+      </div>
+      <div class="small-1 columns"></div>
+     </div>
+     <br/>
+  </script>
+</div>
+
+
+<% content_for :javascript do %>
+<script type="text/javascript">
+
+(function () {
+
+  // Close idea form modal on idea submit
+  $('form.new-idea').on('submit', function (e) {
+    e.preventDefault();
+    console.log("idea sumbitted");
+    $('a.close-reveal-modal').trigger('click');
+  });
+
+  // Create ideas model instance
+  var userIdeas = new Idea();
+
+  // Initialize IdeaForm and IdeaWall presenters
+  var formPresenter = new IdeaForm({
+    root: $('form.new-idea'),
+    ideas: userIdeas
+  });
+
+  var wallPresenter = new IdeaWall({
+    root: $('.idea-wall'),
+    ideas: userIdeas
+  });
+
+  var serverIdeas = <%= raw @user.ideas.to_json %>;
+
+  userIdeas.initializeIdeas(serverIdeas);
+
+})();
+</script>
+<% end %>

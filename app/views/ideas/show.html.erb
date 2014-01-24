@@ -34,8 +34,17 @@
     <div><%= render "ideas/tapSlider" %></div>
     <div class="tapCount">
       <h5 style="width:100px">Idea tap count:</h5>
+    <div class="tapCount" style="width:200px">
+      <h5>Idea tap count:</h5>
       <br/>
-      <h1><span id="coffer-count" style="border-radius:50%; border:solid black 5px;padding:10px"><%= @idea.coffer %></span><h1>
+      <div style="border-radius:80px; width:160px; height:160px; border:solid black 5px;padding:10px">  
+        <h2 style="text-align:center; line-height:120px"><span id="coffer-count">
+          <% if @idea.coffer == 0 %>
+            none
+          <% else %>
+            <%= @idea.coffer %>
+          <% end %>
+        </span><h2>
     </div>
   </div>   
 </div>
