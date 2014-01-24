@@ -4,14 +4,16 @@
 
     var $root = options.root;
     var comments = options.comments;
-    var user_id = options.user_id
+    var user_id = options.user_id;
+    var username = options.username;
 
     $root.on('submit', function (e) {
       e.preventDefault();
 
       var newComment = {
         body: $('[name=body]', $root).val(),
-        user_id: user_id
+        user_id: user_id,
+        username: username
       };
 
       comments.create(newComment);

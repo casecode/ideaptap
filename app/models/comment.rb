@@ -7,7 +7,8 @@ class Comment < ActiveRecord::Base
       id: self.id,
       body: self.body,
       user_id: self.user_id,
-      idea_id: self.idea_id
+      idea_id: self.idea_id,
+      username: self.username
     }
   end
 end

@@ -79,6 +79,6 @@ class IdeasController < ApplicationController
     end
 
     def comment_params
-      params.permit(:body, :idea_id)
+      params.permit(:body, :idea_id, :username)
     end
 end
