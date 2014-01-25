@@ -48,24 +48,6 @@
 </div>
 
 
-<!-- Idea Template -->
-<!-- <div id="templates">
-  <script type="text/template" class="idea">
-    <div class="row panel radius idea">
-      <div class="small-1 columns"></div>
-      <div class="small-10 columns">
-        <h3>{ title }</h3>
-        <p><strong>{ long_desc }</strong></p>
-        <p class="button tiny radius"><a href="{ idea_support_url }">Idea support</a></p>
-        <p><strong>Tap count</strong>: { coffer } taps</p>
-      </div>
-      <div class="small-1 columns"></div>
-     </div>
-     <br/>
-  </script>
-</div>
- -->
-
 <% content_for :javascript do %>
 <script type="text/javascript">
 
@@ -87,15 +69,6 @@
     root: $('form.new-idea'),
     ideas: userIdeas
   });
-
-  // var wallPresenter = new IdeaWall({
-  //   root: $('.idea-wall'),
-  //   ideas: userIdeas
-  // });
-
-  // var serverIdeas = <%= raw @user.ideas.to_json %>;
-
-  // userIdeas.initializeIdeas(serverIdeas);
 
 })();
 </script>
