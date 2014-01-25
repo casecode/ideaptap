@@ -28,15 +28,15 @@
               <h3><%= idea.title %></h3>
             <% end %>
             <br/>
-            <p><strong>Description:</strong> <%= idea.long_desc %></p>
-            <% if idea.idea_support_url =~ /www./ %>
+            <p><strong>Short description: </strong><%= idea.short_desc %></p>
+            <% if idea.idea_support_url =~ /http/ %>
               <p class="button tiny radius">
                 <a href="<%= idea.idea_support_url %>">Idea support</a>
               </p>
             <% else %>
-              <p><strong>Idea support:</strong> None provided.</p>
+              <p><strong>Idea support: </strong>Not provided.</p>
             <% end %>
-            <p><strong>Tap count:</strong> <%= idea.coffer %></p>
+            <p><strong>Tap count: </strong><%= idea.coffer %></p>
           </div>
           <div class="small-1 columns"></div>
          </div>
