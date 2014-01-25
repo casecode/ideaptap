@@ -6,7 +6,8 @@ class Idea < ActiveRecord::Base
 
   def self.search(search)
     if search
-      find(:all, :conditions => ['title LIKE ? OR name LIKE ?', "%#{search}%", "%#{search}%"])
+      search_input = "%#{search}%".downcase
+      find(:all, :conditions => ['LOWER(title) LIKE ? OR LOWER(name) LIKE ?', search_input, search_input])
     else
       find(:all)
     end
