@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    # @my_ideas = current_user.ideas.sort { |a,b| b.created_at <=> a.created_at }
 
     respond_to do |format|
       if @user.save
