@@ -10,6 +10,7 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
+    @ideas = Idea.all
   end
 
   # GET /organizations/new
@@ -65,6 +66,10 @@ class OrganizationsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_organization
       @organization = Organization.find(params[:id])
+    end
+
+    def idea_params
+      params.require(:idea).permit(:title, :category, :short_desc, :long_desc, :idea_support_url, :coffer)
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

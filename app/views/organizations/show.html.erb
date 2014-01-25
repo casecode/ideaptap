@@ -25,12 +25,12 @@
   <div class="small-0 medium-3 large-2"></div>
   <div class="small-0 medium-3 large-2">
     <div id="Cat1Ideas">
-      <% if (Ideas.category == 1 ) %>
-      <%  
+      <%= @ideas.find(:all, :conditions => {:category => 'category1'}).sort_by(&:coffer).reverse %>  
+      <%= 
+    </div>
   </div>
-
+</div>
 
   
 
 
-array_of_objects.sort_by(&:virtual_attribute)
