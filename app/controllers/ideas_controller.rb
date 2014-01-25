@@ -4,7 +4,8 @@ class IdeasController < ApplicationController
   # GET /ideas
   # GET /ideas.json
   def index
-    @ideas = Idea.all
+    my_org_ideas = current_user.organization.ideas.includes(:user)
+    @ideas = my_org_ideas.search(params[:search])
   end
 
   # GET /ideas/1

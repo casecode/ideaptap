@@ -1,15 +1,13 @@
 <!-- Create modal for submitting idea form -->
-
-
 <div id="ideaForm" class="reveal-modal" data-reveal>
   <%= render "ideas/form" %>
   <a class="close-reveal-modal">&#215;</a>
 </div>
 
-<!-- Idea Wall -->
+<!--  -->
 <div class="row">
   <div class="small-3 columns">
-    <h2 class="ideaWall">My Ideas</h2>
+    <h2 class="ideaWall">My ideas</h2>
   </div>
   <div class="small-3 columns">
     <a class="button alert tiny radius" href="#" data-reveal-id="ideaForm" style="margin-top:15px">Create a new idea</a>
@@ -19,27 +17,54 @@
   </div>
 </div>
 
-
-<div class="idea-wall"></div>
+<div class="row">
+  <div class="small-12 medium-11 large-11 columns">
+    <div class="idea-wall">
+      <% my_ideas_most_recent_first.each do |idea| %>
+        <div class="row panel radius idea">
+          <div class="small-1 columns"></div>
+          <div class="small-10 columns">
+            <%= link_to (idea_path(idea.id)) do %>
+              <h3><%= idea.title %></h3>
+            <% end %>
+            <br/>
+            <p><strong>Short description: </strong><%= idea.short_desc %></p>
+            <% if idea.idea_support_url =~ /http/ %>
+              <p class="button tiny radius">
+                <a href="<%= idea.idea_support_url %>">Idea support</a>
+              </p>
+            <% else %>
+              <p><strong>Idea support: </strong>Not provided.</p>
+            <% end %>
+            <p><strong>Tap count: </strong><%= idea.coffer %></p>
+          </div>
+          <div class="small-1 columns"></div>
+         </div>
+         <br/>
+      <% end %>
+    </div>
+  </div>
+  <div class="small-0 medium-1 large-1 columns">&nbsp</div>
+</div>
 
 
 <!-- Idea Template -->
-<div id="templates">
+<!-- <div id="templates">
   <script type="text/template" class="idea">
     <div class="row panel radius idea">
       <div class="small-1 columns"></div>
       <div class="small-10 columns">
         <h3>{ title }</h3>
-        <p>{ long_desc }</p>
-        <p class="button tiny radius"><a href="{ idea_support_url }">Idea Support</a></p>
-        <p>Coffer: { coffer } taps</p>
+        <p><strong>{ long_desc }</strong></p>
+        <p class="button tiny radius"><a href="{ idea_support_url }">Idea support</a></p>
+        <p><strong>Tap count</strong>: { coffer } taps</p>
       </div>
       <div class="small-1 columns"></div>
      </div>
      <br/>
   </script>
 </div>
-
+ -->
 
 <% content_for :javascript do %>
 <script type="text/javascript">
@@ -51,6 +76,7 @@
     e.preventDefault();
     console.log("idea sumbitted");
     $('a.close-reveal-modal').trigger('click');
+    location.reload();
   });
 
   // Create ideas model instance
@@ -62,14 +88,14 @@
     ideas: userIdeas
   });
 
-  var wallPresenter = new IdeaWall({
-    root: $('.idea-wall'),
-    ideas: userIdeas
-  });
+  // var wallPresenter = new IdeaWall({
+  //   root: $('.idea-wall'),
+  //   ideas: userIdeas
+  // });
 
-  var serverIdeas = <%= raw @user.ideas.to_json %>;
+  // var serverIdeas = <%= raw @user.ideas.to_json %>;
 
-  userIdeas.initializeIdeas(serverIdeas);
+  // userIdeas.initializeIdeas(serverIdeas);
 
 })();
 </script>

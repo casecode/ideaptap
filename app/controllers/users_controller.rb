@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    @users = current_user.organization.users.all
   end
 
   # GET /users/1
@@ -26,6 +26,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
+    # @my_ideas = current_user.ideas.sort { |a,b| b.created_at <=> a.created_at }
 
     respond_to do |format|
       if @user.save

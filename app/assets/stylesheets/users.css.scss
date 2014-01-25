@@ -2,9 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-p.button a {
-  color: white;
-}
 
 p.button a:hover {
   background: none;
@@ -58,4 +55,8 @@ div#panel-row {
   @media only screen and (max-width : 767px) {
     width: 100%;
   }
+}
+
+div.row.panel.idea {
+  background: url('blurry-lights.jpg');
 }
