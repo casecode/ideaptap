@@ -1,35 +1,36 @@
-<h1>Ideas</h1>
+<div class="row">
+  <div class= "small-1 columns">&nbsp</div>
+  <div class= "small-10 medium-5 large-5 columns">
+    <h1><%= current_user.organization.name %>'s ideas</h1>
 
-<%= form_tag ideas_path, :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search], :placeholder => "Search by idea or contributor's name" %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Idea title</th>
-      <th>Contributor name</th>
-      <th>Edit idea</th>
-      <th>Delete idea</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% for idea in @ideas %>
-      <tr>
-        <td><%= link_to idea.title, idea_path(idea) %></td>
-        <td><%= link_to idea.user.name, user_path(idea.user) %></td>
-        <td><%= link_to "Edit", edit_idea_path(idea), :class => 'button tiny radius' %></td>
-        <td><%= link_to "Delete", idea_path(idea), :method => :delete, :class => 'button tiny alert radius' %></td>
-      </tr>
+    <%= form_tag ideas_path, :method => 'get' do %>
+      <p>
+        <%= text_field_tag :search, params[:search], :placeholder => "Search by idea or contributor's name" %>
+        <%= submit_tag "Search", :name => nil %>
+      </p>
     <% end %>
-  </tbody>
-</table>
 
-<br>
+    <table>
+      <thead>
+        <tr>
+          <th>Idea title</th>
+          <th>Contributor name</th>
+          <th>Edit idea</th>
+          <th>Delete idea</th>
+        </tr>
+      </thead>
 
-<%= link_to 'New Idea', new_idea_path %>
- -->
+      <tbody>
+        <% for idea in @ideas %>
+          <tr>
+            <td><%= link_to idea.title, idea_path(idea) %></td>
+            <td><%= link_to idea.user.name, user_path(idea.user) %></td>
+            <td><%= link_to "Edit", edit_idea_path(idea), :class => 'button tiny radius' %></td>
+            <td><%= link_to "Delete", idea_path(idea), :method => :delete, :class => 'button tiny alert radius' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <div class= "small-1 medium-6 large-6 columns">&nbsp</div>
+</div>

@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+p.button a {
+  color: white;
+}
 
 p.button a:hover {
   background: none;
+  color: white;
 }
 
 dl.tabs.vertical, div.tabs-content.vertical {
