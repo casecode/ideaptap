@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  after_create :refresh_user_page
+
   # GET /ideas
   # GET /ideas.json
   def index
@@ -80,9 +80,5 @@ class IdeasController < ApplicationController
 
     def comment_params
       params.permit(:body, :idea_id, :username)
-    end
-
-    def refresh_user_page
-      redirect_to user_path(current_user)
     end
 end
