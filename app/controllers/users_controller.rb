@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user_for_dashboard, only: [:show]
+  before_action :admin_rights, only: [:index, :new, :edit, :create, :update, :destroy]
+  before_action :delete_associated_objects, only: [:destroy]
 
   # GET /users
   # GET /users.json
@@ -31,7 +33,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.html { redirect_to user_path(current_user) }
         format.json { render action: 'show', status: :created, location: @user }
       else
         format.html { render action: 'new' }
@@ -45,7 +47,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to :back }
+        format.html { redirect_to users_path }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -98,5 +100,22 @@ class UsersController < ApplicationController
       if current_user != @user
         redirect_to user_path(current_user)
       end
+    end
+
+    def admin_rights
+      if !current_user.admin
+        redirect_to user_path(current_user)
+      end
+    end
+
+    def delete_associated_objects
+      # Destroy comments and transactions associated with user idea before destroying user ideas
+      for idea in @user.ideas
+        idea.comments.destroy_all
+        idea.transactions.destroy_all
+        idea.destroy
+      end
+      @user.transactions.destroy_all
+      @user.comments.destroy_all
     end
 end

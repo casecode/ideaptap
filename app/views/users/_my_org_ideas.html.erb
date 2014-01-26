@@ -30,7 +30,7 @@
             </thead>
 
             <tbody>
-              <% my_org_ideas_by_coffer('biz-dev').each do |idea| %>
+              <% my_org_ideas_by_coffer_top3('biz-dev').each do |idea| %>
                 <tr>
                   <td><%= link_to idea.title, idea_path(idea) %></td>
                   <td><%= idea.coffer %></td>
@@ -63,7 +63,7 @@
             </thead>
 
             <tbody>
-              <% my_org_ideas_by_coffer('CSR').each do |idea| %>
+              <% my_org_ideas_by_coffer_top3('CSR').each do |idea| %>
                 <tr>
                   <td><%= link_to idea.title, idea_path(idea) %></td>
                   <td><%= idea.coffer %></td>
@@ -98,7 +98,7 @@
             </thead>
 
             <tbody>
-              <% my_org_ideas_by_coffer('fin-and-ops').each do |idea| %>
+              <% my_org_ideas_by_coffer_top3('fin-and-ops').each do |idea| %>
                 <tr>
                   <td><%= link_to idea.title, idea_path(idea) %></td>
                   <td><%= idea.coffer %></td>
@@ -131,7 +131,7 @@
             </thead>
 
             <tbody>
-              <% my_org_ideas_by_coffer('soc-and-net').each do |idea| %>
+              <% my_org_ideas_by_coffer_top3('soc-and-net').each do |idea| %>
                 <tr>
                   <td><%= link_to idea.title, idea_path(idea) %></td>
                   <td><%= idea.coffer %></td>

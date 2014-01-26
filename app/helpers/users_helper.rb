@@ -8,7 +8,7 @@ module UsersHelper
     current_user.ideas.sort{ |a,b| b.created_at <=> a.created_at }
   end
 
-  def my_org_ideas_by_coffer(category)
+  def my_org_ideas_by_coffer_top3(category)
   	current_user.organization.ideas.find(:all, :conditions => {:category => "#{category}"}).sort_by(&:coffer).reverse.first(3)
   end
 
