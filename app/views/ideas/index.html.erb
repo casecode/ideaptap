@@ -1,8 +1,14 @@
 <div class="row">
   <div class= "small-1 columns">&nbsp</div>
-  <div class= "small-10 medium-5 large-5 columns">
-    <h1><%= current_user.organization.name %>'s ideas</h1>
+  <div class= "small-10 columns">
+    <h1><%= current_user.organization.name %>'s Ideas</h1>
+  </div>
+  <div class= "small-1 columns">&nbsp</div>
+</div>
 
+<div class="row">
+  <div class= "small-1 columns">&nbsp</div>
+  <div class= "small-10 medium-5 large-5 columns">
     <%= form_tag ideas_path, :method => 'get' do %>
       <p>
         <%= text_field_tag :search, params[:search], :placeholder => "Search by idea or contributor's name" %>
@@ -10,13 +16,13 @@
       </p>
     <% end %>
 
-    <table>
+    <table class="my-tables">
       <thead>
         <tr>
-          <th>Idea title</th>
-          <th>Contributor name</th>
-          <th>Edit idea</th>
-          <th>Delete idea</th>
+          <th>Idea Title</th>
+          <th>Contributor Name</th>
+          <th>Edit Idea</th>
+          <th>Delete Idea</th>
         </tr>
       </thead>
 
@@ -24,9 +30,9 @@
         <% for idea in @ideas %>
           <tr>
             <td><%= link_to idea.title, idea_path(idea) %></td>
-            <td><%= link_to idea.user.name, user_path(idea.user) %></td>
-            <td><%= link_to "Edit", edit_idea_path(idea), :class => 'button tiny radius' %></td>
-            <td><%= link_to "Delete", idea_path(idea), :method => :delete, :class => 'button tiny alert radius' %></td>
+            <td><%= idea.user.name %></td>
+            <td><%= link_to "Edit", edit_idea_path(idea), :class => 'button tiny radius', :style => 'padding:10px; margin:0px' %></td>
+            <td><%= link_to "Delete", idea_path(idea), :method => :delete, :class => 'button tiny alert radius', :style => 'padding:10px; margin:0px' %></td>
           </tr>
         <% end %>
       </tbody>

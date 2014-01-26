@@ -2,7 +2,7 @@ Ideatap::Application.routes.draw do
 
   root 'static_files#landing'
   
-  devise_for :users, :controllers => { :registrations => "registrations" }
+  devise_for :users
  
   resources :users do
     resources :transactions

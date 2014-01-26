@@ -11,6 +11,15 @@ p.button a:hover {
   color: white;
 }
 
+div.button a {
+  color: white;
+}
+
+div.button a:hover {
+  background: none;
+  color: white;
+}
+
 dl.tabs.vertical, div.tabs-content.vertical {
   width: 100%;
 }

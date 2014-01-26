@@ -10,7 +10,6 @@ class OrganizationsController < ApplicationController
   # GET /organizations/1
   # GET /organizations/1.json
   def show
-    @ideas = Idea.all
   end
 
   # GET /organizations/new
