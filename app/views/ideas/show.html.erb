@@ -3,11 +3,11 @@
   <div class="small-0 medium-3 large-3 columns">
     <div id="categoryImage" style="padding-left:25px">
       <% case @idea.category %>
-      <% when "1" %>
+      <% when "biz-dev" %>
       <%= image_tag('sales.png') %>
-      <% when "2" %>
+      <% when "CSR" %>
       <%= image_tag('production.png') %>
-      <% when "3" %>
+      <% when "fin-and-ops" %>
       <%= image_tag('money.png') %>
       <% else %>
       <%= image_tag('social.jpg') %>
@@ -21,7 +21,25 @@
   <div class="small-12 medium-5 large-5 columns" style="padding-left:50px;padding-right:0px">
     <h1><%= @idea.title %></h1>
     <h4>By <%= @idea.user.name %></h4>
+    <br/ >
+    <p><strong>Category: </strong>
+      <% case @idea.category %>
+      <% when "biz-dev" %>
+        Business Development
+      <% when "CSR" %>
+        Corporate Social Responsibility
+      <% when "fin-and-ops" %>
+        Finance & Operations
+      <% when "soc-and-net" %>
+        Social & Networking
+      <% end %>
+    </p>
     <p><%= @idea.long_desc %></p>
+    <br />
+    <% if @idea.idea_support_url =~ /http/ %>
+      <%= link_to "Idea Support URL", @idea.idea_support_url, :class => 'button alert tiny radius' %>
+    <% end %>
+    <br/>
     <br/>
     <div><%= render "comments/form" %></div>
     <div class="comment-wall"></div>
