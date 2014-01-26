@@ -14,13 +14,13 @@
           <li class="divider"></li>
           <li><a class="nav-link" href="#" name="about-button">About</a></li>
           <li class="divider"></li>
-          <li><a class="nav-link" name="signin-dropdown" href="#" data-dropdown="signin">Sign in</a></li>
+          <li><a class="nav-link" name="signin-dropdown" href="#" data-dropdown="signin">Sign In</a></li>
         <% end %>
         <%= user_logged_in do %>
           <li class="divider"></li>
-          <li><%= link_to('My dashboard', user_path(current_user), :class => 'nav-link') %></li>
+          <li><%= link_to('My Dashboard', user_path(current_user), :class => 'nav-link') %></li>
           <li class="divider"></li>
-          <li class="nav-link"><%= link_to('Sign out', destroy_user_session_path, :method => :delete, :class => 'nav-link') %></li>
+          <li class="nav-link"><%= link_to('Sign Out', destroy_user_session_path, :method => :delete, :class => 'nav-link') %></li>
         <% end %>
         </li>
       </ul>
@@ -46,6 +46,7 @@
     <%= f.submit 'Sign in', :class => 'button tiny' %>
   <% end %>
   <hr>
+  <br />
   <div class="button tiny alert" id="forgot-button">Forgot password?</div>
 </div>
 
@@ -57,5 +58,6 @@
     <%= f.submit "Send me reset password instructions", :class => 'button tiny' %>
   <% end %>
   <hr>
+  <br />
   <div class="button tiny alert" id="back-to-signin-button">Back to sign in</div>
 </div>

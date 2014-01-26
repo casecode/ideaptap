@@ -8,8 +8,9 @@
   <table class="my-tables">
     <thead>
       <tr>
-        <th>Idea</th>
-        <th>Total Taps Contributed</th>
+        <th>Idea Name</th>
+        <th>My Total Contribution</th>
+        <th>Idea Total Tap Count</th>
       </tr>
     </thead>
 
@@ -18,6 +19,7 @@
         <tr>
           <td><%= link_to Idea.find(c.idea_id).title, idea_path(c.idea_id) %></td>
           <td><%= c.total_contribution %></td>
+          <td><%= Idea.find(c.idea_id).coffer %></td>
         </tr>
       <% end %>
     </tbody>

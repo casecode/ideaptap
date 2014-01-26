@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    # @my_ideas = current_user.ideas.sort { |a,b| b.created_at <=> a.created_at }
+    @user.organization = current_user.organization
 
     respond_to do |format|
       if @user.save
@@ -83,7 +83,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name, :admin, :wallet)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :admin, :wallet, :organization_id)
     end
 
     def idea_params
