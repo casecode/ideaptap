@@ -42,6 +42,7 @@
     <br/>
     <br/>
     <div><%= render "comments/form" %></div>
+    <br />
     <div class="comment-wall"></div>
   </div>
   
@@ -76,7 +77,7 @@
   <script type="text/template" class="comment">
     <div class="row panel radius comment">
       <div class="small-12 columns">
-        <p>{ username }</p>
+        <p><strong><em>by { username }</em></strong></p>
         <p>{ body }</p>
       </div>
     </div>
