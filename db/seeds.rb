@@ -1,9 +1,8 @@
 # Create seed data for testing database
-
+Organization.destroy_all
 User.destroy_all
-Idea.destroy_all
-Comment.destroy_all
-puts "Destroyed all users, ideas and comments."
+# Idea.destroy_all
+# Comment.destroy_all
 
 I18n.enforce_available_locales = false
 
@@ -26,19 +25,19 @@ users = [
  {name: "Lenard", admin: false, wallet: 100, email: "lenard@email.com", organization_id: "2", password: "password", password_confirmation: "password"}
 ]
 
-ideas = [
-  {title: "idea1", short_desc: "so short", long_desc: "so long", coffer: 25, user_id: 1},
-  {title: "idea2", short_desc: "too short", long_desc: "too long", coffer: 50, user_id: 1},
-  {title: "idea3", short_desc: "way too short", long_desc: "way too long", coffer: 80, user_id: 1},
-  {title: "idea4", short_desc: "like totally short", long_desc: "like totally long", coffer: 25, user_id: 1},
-]
+# ideas = [
+#   {title: "idea1", short_desc: "so short", long_desc: "so long", coffer: 25, user_id: 1},
+#   {title: "idea2", short_desc: "too short", long_desc: "too long", coffer: 50, user_id: 1},
+#   {title: "idea3", short_desc: "way too short", long_desc: "way too long", coffer: 80, user_id: 1},
+#   {title: "idea4", short_desc: "like totally short", long_desc: "like totally long", coffer: 25, user_id: 1},
+# ]
 
-comments = [
-  {body: "Look, it's comment number 1", user_id: 1, idea_id: 2},
-  {body: "Look, it's comment number 2", user_id: 2, idea_id: 4},
-  {body: "Look, it's comment number 3", user_id: 1, idea_id: 1},
-  {body: "Look, it's comment number 4", user_id: 2, idea_id: 1},
-]
+# comments = [
+#   {body: "Look, it's comment number 1", user_id: 1, idea_id: 2},
+#   {body: "Look, it's comment number 2", user_id: 2, idea_id: 4},
+#   {body: "Look, it's comment number 3", user_id: 1, idea_id: 1},
+#   {body: "Look, it's comment number 4", user_id: 2, idea_id: 1},
+# ]
 
 
 organizations.each do |organization|
@@ -60,22 +59,21 @@ users.each do |user|
   )
 end
 
-ideas.each do |idea|
-  Idea.create(
-    title: idea[:title],
-    short_desc: idea[:short_desc],
-    long_desc: idea[:long_desc],
-    coffer: idea[:coffer],
-    user_id: idea[:user_id]
-  )
-end
+# ideas.each do |idea|
+#   Idea.create(
+#     title: idea[:title],
+#     short_desc: idea[:short_desc],
+#     long_desc: idea[:long_desc],
+#     coffer: idea[:coffer],
+#     user_id: idea[:user_id]
+#   )
+# end
 
-comments.each do |comment|
-  Comment.create(
-    body: comment[:body],
-    user_id: comment[:user_id],
-    idea_id: comment[:idea_id]
-  )
-end
+# comments.each do |comment|
+#   Comment.create(
+#     body: comment[:body],
+#     user_id: comment[:user_id],
+#     idea_id: comment[:idea_id]
+#   )
+# end
 
-puts "Create 4 new users, 4 new ideas, and 4 new comments."
