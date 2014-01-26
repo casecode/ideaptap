@@ -1,8 +1,9 @@
 # Create seed data for testing database
 Organization.destroy_all
 User.destroy_all
-# Idea.destroy_all
-# Comment.destroy_all
+Idea.destroy_all
+Comment.destroy_all
+Transaction.destroy_all
 
 I18n.enforce_available_locales = false
 
