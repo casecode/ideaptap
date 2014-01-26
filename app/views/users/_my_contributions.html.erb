@@ -15,7 +15,7 @@
     </thead>
 
     <tbody>
-      <% if !current_user.transactions %>
+      <% if (current_user.transactions.count > 0) %>
         <% my_contributions.each do |c| %>
           <tr>
             <td><%= link_to Idea.find(c.idea_id).title, idea_path(c.idea_id) %></td>

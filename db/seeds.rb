@@ -9,12 +9,12 @@ Transaction.destroy_all
 I18n.enforce_available_locales = false
 
 organizations = [
-  {name: "Case & Company", logo_url: "http://en.wikipedia.org/wiki/Case_Corporation"},
-  {name: "Laney Ltd", logo_url: "http://www.laney.co.uk/"}
+  {name: "Case & Company", logo_url: "http://cdn-img.easylogo.cn/gif/26/26886.gif"},
+  {name: "Laney Ltd", logo_url: "http://www.trademarkia.com/logo-images/laney-directional-drilling-co/laney-road-boring-wet-or-dry-77478905.jpg"}
   ]
 
 users = [
- {name: "Case", admin: true, wallet: 500, email: "case@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Case", admin: true, wallet: 200, email: "case@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
  {name: "Candy", admin: false, wallet: 100, email: "candy@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
  {name: "Carl", admin: false, wallet: 100, email: "carl@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
  {name: "Cindy", admin: false, wallet: 100, email: "cindy@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
@@ -81,6 +81,7 @@ ideas.each do |idea|
     title: idea[:title],
     short_desc: idea[:short_desc],
     long_desc: idea[:long_desc],
+    category: idea[:category],
     coffer: idea[:coffer],
     user_id: idea[:user_id]
   )
