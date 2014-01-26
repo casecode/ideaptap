@@ -5,7 +5,8 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = current_user.organization.users.all
+    my_org_users = current_user.organization.users
+    @users = my_org_users.search(params[:search])
   end
 
   # GET /users/1

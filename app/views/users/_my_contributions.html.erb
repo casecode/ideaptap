@@ -1,0 +1,25 @@
+<!-- Current user's contributions -->
+<div class="row">
+  <h2>My Contributions</h2>
+</div>
+<br/>
+
+<div class="row">    
+  <table class="my-tables">
+    <thead>
+      <tr>
+        <th>Idea</th>
+        <th>Total Taps Contributed</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% my_contributions.each do |c| %>
+        <tr>
+          <td><%= link_to Idea.find(c.idea_id).title, idea_path(c.idea_id) %></td>
+          <td><%= c.total_contribution %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

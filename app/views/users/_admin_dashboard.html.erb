@@ -1,0 +1,24 @@
+<div class="row">
+  <h2><%= current_user.organization.name %> Administrator Panel</h2>
+  <br/>
+  <h5>As as adminstrator, you have the ability to create new users, edit and delete existing users, and edit and delete existing ideas associated with <%= current_user.organization.name %>.</h5>
+  <br/>
+  <br/>
+</div>
+
+<!-- Create new users -->
+<div class=row>
+  <div class="button radius">
+    <%= link_to "Create New User", new_user_path %>
+  </div>
+
+  <!-- Go to user index page -->
+  <div class="button radius">
+    <%= link_to "Edit / Delete Existing Users", users_path %>
+  </div>
+
+  <!-- Go to ideas index page -->
+  <div class="button radius">
+    <%= link_to "Edit / Delete Existing Ideas", ideas_path %>
+  </div>
+</div>

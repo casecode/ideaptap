@@ -13,3 +13,23 @@
 
  *= require_tree .
  */
+
+
+table.my-tables {
+  border-collapse: collapse;
+}
+
+.my-tables th {
+  color: white;
+  background: #184363;
+  text-align: center;
+  border: 1px solid gray;
+  font-weight: normal;
+}
+
+.my-tables td {
+  border: 1px solid gray;
+  color: #184363;
+  text-align: center;
+}
+

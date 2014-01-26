@@ -11,4 +11,8 @@ module UsersHelper
   def my_org_ideas_by_coffer(category)
   	current_user.organization.ideas.find(:all, :conditions => {:category => "#{category}"}).sort_by(&:coffer).reverse.first(5)
   end
+
+  def my_contributions
+    current_user.transactions.select("idea_id, sum(amount) as total_contribution").group("idea_id")
+  end
 end
