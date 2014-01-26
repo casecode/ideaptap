@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :delete_associated_objects, only: [:destroy]
 
   # GET /ideas
   # GET /ideas.json
@@ -44,7 +45,7 @@ class IdeasController < ApplicationController
   def update
     respond_to do |format|
       if @idea.update(idea_params)
-        format.html { redirect_to @idea, notice: 'Idea was successfully updated.' }
+        format.html { redirect_to ideas_path }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -80,6 +81,11 @@ class IdeasController < ApplicationController
     end
 
     def comment_params
-      params.permit(:body, :idea_id, :username)
+      params.permit(:body, :idea_id, :user_id, :username)
+    end
+
+    def delete_associated_objects
+      @idea.comments.destroy_all
+      @idea.transactions.destroy_all
     end
 end

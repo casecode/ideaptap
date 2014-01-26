@@ -1,0 +1,24 @@
+<%= form_for @idea do |f| %>
+  
+  <div><%= f.label :title %>
+  <%= f.text_field :title %></div>
+  <br />
+
+  <div><%= f.label :short_desc %>
+  <%= f.text_field :short_desc %></div>
+  <br />
+
+  <div><%= f.label :long_desc %>
+  <%= f.text_field :long_desc %></div>
+  <br />
+
+  <div><%= f.label :idea_support_url %>
+  <%= f.text_field :idea_support_url %></div>
+  <br />
+
+  <div><%= f.label :coffer %>
+  <%= f.number_field :coffer %>
+  <br />
+
+  <div class="actions"><%= f.submit "Edit Idea", :class => 'button small alert radius' %></div>
+<% end %>
