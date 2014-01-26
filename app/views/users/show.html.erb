@@ -9,16 +9,16 @@
 <div class="row" id="dashboard-row">
   <div class="small-12 columns">
     <dl class="tabs vertical" data-tab>
-      <h3 id="my-dashboard">My dashboard</h3>
+      <h3 id="my-dashboard">My Dashboard</h3>
       <hr>
-      <dd class="active"><a class="tab-panel" href="#panel1">My ideas</a></dd>
+      <dd class="active"><a class="tab-panel" href="#panel1">My Ideas</a></dd>
       <hr>
-      <dd><a class="tab-panel" href="#panel2">My company's ideas</a></dd>
+      <dd><a class="tab-panel" href="#panel2"><%= current_user.organization.name %>'s Top Ideas</a></dd>
       <hr>
-      <dd><a class="tab-panel" href="#panel3">My contributions</a></dd>
+      <dd><a class="tab-panel" href="#panel3">My Contributions</a></dd>
       <hr>
       <%= admin_rights do %>
-        <dd><a class="tab-panel" href="#panel4">Admin dashboard</a></dd>
+        <dd><a class="tab-panel" href="#panel4">Admin Dashboard</a></dd>
       <% end %>
       <hr>
     </dl>
@@ -32,7 +32,7 @@
         <%= render 'my_ideas' %>
       </div>
       <div class="content" id="panel2">
-        <p>Panel 2 content goes here.</p>
+        <%= render 'my_org_ideas' %>
       </div>
       <div class="content" id="panel3">
         <p>Panel 3 content goes here.</p>

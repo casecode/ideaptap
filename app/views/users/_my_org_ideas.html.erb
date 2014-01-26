@@ -1,0 +1,146 @@
+<!-- Current user's org's ideas -->
+<div class="row">
+  <div class="small-6 columns">
+    <h2><%= current_user.organization.name %>'s Top Ideas</h2>
+  </div>
+  <div class="small-3 columns">
+    <%= link_to "Show All", organization_path(current_user.organization), :class => 'button alert tiny radius', :style => 'margin-top:15px' %>
+  </div>
+  <div class="small-3 columns"></div>
+</div>
+
+<div class="row" style="padding-top:20px">    
+  <div class="small-0 medium-3 large-2 columns">
+    <div id="catImage1">
+      <%= image_tag('sales.png') %>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-4 columns">
+    <h4>Business Development</h4>
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <div id="Cat1Ideas">    
+          <table>
+            <thead>
+              <tr>
+                <th>Idea</th>
+                <th>Taps</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% my_org_ideas_by_coffer('biz-dev').each do |idea| %>
+                <tr>
+                  <td><%= link_to idea.title, idea_path(idea) %></td>
+                  <td><%= idea.coffer %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-0 medium-3 large-2 columns">
+    <div id="catImage2">
+      <%= image_tag('production.png') %>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-4 columns">
+    <h4>Corp. Social Responsibility</h4>
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <div id="Cat1Ideas">    
+          <table>
+            <thead>
+              <tr>
+                <th>Idea</th>
+                <th>Taps</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% my_org_ideas_by_coffer('CSR').each do |idea| %>
+                <tr>
+                  <td><%= link_to idea.title, idea_path(idea) %></td>
+                  <td><%= idea.coffer %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row" style="padding-top:20px">    
+  <div class="small-0 medium-3 large-2 columns">
+    <div id="catImage3">
+      <%= image_tag('money.png') %>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-4 columns">
+    <h4>Finance & Operations</h4>
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <div id="Cat1Ideas">    
+          <table>
+            <thead>
+              <tr>
+                <th>Idea</th>
+                <th>Taps</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% my_org_ideas_by_coffer('fin-and-ops').each do |idea| %>
+                <tr>
+                  <td><%= link_to idea.title, idea_path(idea) %></td>
+                  <td><%= idea.coffer %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="small-0 medium-3 large-2 columns">
+    <div id="catImage4">
+      <%= image_tag('social.jpg') %>
+    </div>
+  </div>
+  <div class="small-0 medium-3 large-4 columns">
+    <h4>Social & Networking</h4>
+    <br/>
+    <div class="row">
+      <div class="small-12 columns">
+        <div id="Cat1Ideas">    
+          <table>
+            <thead>
+              <tr>
+                <th>Idea</th>
+                <th>Taps</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% my_org_ideas_by_coffer('soc-and-net').each do |idea| %>
+                <tr>
+                  <td><%= link_to idea.title, idea_path(idea) %></td>
+                  <td><%= idea.coffer %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
