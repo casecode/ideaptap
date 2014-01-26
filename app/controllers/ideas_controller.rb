@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :admin_rights, only: [:index, :edit, :update, :destroy]
   before_action :delete_associated_objects, only: [:destroy]
 
   # GET /ideas
@@ -82,6 +83,12 @@ class IdeasController < ApplicationController
 
     def comment_params
       params.permit(:body, :idea_id, :user_id, :username)
+    end
+
+    def admin_rights
+      if !current_user.admin
+        redirect_to user_path(current_user)
+      end
     end
 
     def delete_associated_objects

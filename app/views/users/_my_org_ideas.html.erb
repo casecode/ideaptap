@@ -1,12 +1,12 @@
 <!-- Current user's org's ideas -->
 <div class="row">
-  <div class="small-6 columns">
+  <div class="small-8 columns">
     <h2><%= current_user.organization.name %>'s Top Ideas</h2>
   </div>
   <div class="small-3 columns">
     <%= link_to "Show All Ideas", organization_path(current_user.organization), :class => 'button alert tiny radius', :style => 'margin-top:15px' %>
   </div>
-  <div class="small-3 columns"></div>
+  <div class="small-1 columns"></div>
 </div>
 
 <div class="row" style="padding-top:20px">    
