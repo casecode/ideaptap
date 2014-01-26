@@ -7,18 +7,30 @@ puts "Destroyed all users, ideas and comments."
 
 I18n.enforce_available_locales = false
 
-# users = [
-#  {name: "Jim", admin: false, wallet: 75, email: "jim@example.com", encrypted_password: "password"},
-#  {name: "Bob", admin: false, wallet: 50, email: "bob@example.com", encrypted_password: "password"},
-#  {name: "Case", admin: false, wallet: 25, email: "case@example.com", encrypted_password: "password"},
-#  {name: "LaneLane", admin: true, wallet: 100, email: "laney@email.com", encrypted_password: "password"}
-# ]
+organizations = [
+  {name: "Case & Company", logo_url: "http://en.wikipedia.org/wiki/Case_Corporation"},
+  {name: "Laney Ltd", logo_url: "http://www.laney.co.uk/"}
+  ]
+
+users = [
+ {name: "Case", admin: true, wallet: 500, email: "case@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Candy", admin: false, wallet: 100, email: "candy@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Carl", admin: false, wallet: 100, email: "carl@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Cindy", admin: false, wallet: 100, email: "cindy@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Charlie", admin: false, wallet: 100, email: "charlie@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Carlos", admin: false, wallet: 100, email: "carlos@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Carrey", admin: false, wallet: 100, email: "carrey@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Champ", admin: false, wallet: 100, email: "champ@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Charlette", admin: false, wallet: 100, email: "charlette@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+ {name: "Laney", admin: true, wallet: 100, email: "laney@email.com", organization_id: "2", password: "password", password_confirmation: "password"},
+ {name: "Lenard", admin: false, wallet: 100, email: "lenard@email.com", organization_id: "2", password: "password", password_confirmation: "password"}
+]
 
 ideas = [
-  {title: "idea1", short_desc: "so short", long_desc: "so long", coffer: 25, user_id: 2},
+  {title: "idea1", short_desc: "so short", long_desc: "so long", coffer: 25, user_id: 1},
   {title: "idea2", short_desc: "too short", long_desc: "too long", coffer: 50, user_id: 1},
-  {title: "idea3", short_desc: "way too short", long_desc: "way too long", coffer: 80, user_id: 3},
-  {title: "idea4", short_desc: "like totally short", long_desc: "like totally long", coffer: 25, user_id: 2},
+  {title: "idea3", short_desc: "way too short", long_desc: "way too long", coffer: 80, user_id: 1},
+  {title: "idea4", short_desc: "like totally short", long_desc: "like totally long", coffer: 25, user_id: 1},
 ]
 
 comments = [
@@ -29,14 +41,24 @@ comments = [
 ]
 
 
-# users.each do |user|
-#   User.create(
-#     name: user[:name],
-#     admin: user[:admin],
-#     wallet: user[:wallet],
-#     email: user[:email]
-#   )
-# end
+organizations.each do |organization|
+  Organization.create(
+    name: organization[:name],
+    logo_url: organization[:logo_url]
+    )
+end
+
+users.each do |user|
+  User.create(
+    name: user[:name],
+    admin: user[:admin],
+    wallet: user[:wallet],
+    email: user[:email],
+    organization_id: user[:organization_id],
+    password: user[:password],
+    password_confirmation: user[:password_confirmation]
+  )
+end
 
 ideas.each do |idea|
   Idea.create(
