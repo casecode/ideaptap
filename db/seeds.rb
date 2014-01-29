@@ -1,6 +1,6 @@
 # Create seed data for testing database
-Organization.destroy_all
-User.destroy_all
+# Organization.destroy_all
+# User.destroy_all
 Idea.destroy_all
 Comment.destroy_all
 Transaction.destroy_all
@@ -8,24 +8,24 @@ Transaction.destroy_all
 
 I18n.enforce_available_locales = false
 
-organizations = [
-  {name: "Case & Company", logo_url: "http://cdn-img.easylogo.cn/gif/26/26886.gif"},
-  {name: "Laney Ltd", logo_url: "http://www.trademarkia.com/logo-images/laney-directional-drilling-co/laney-road-boring-wet-or-dry-77478905.jpg"}
-  ]
+# organizations = [
+#   {name: "Case & Company", logo_url: "http://cdn-img.easylogo.cn/gif/26/26886.gif"},
+#   {name: "Laney Ltd", logo_url: "http://www.trademarkia.com/logo-images/laney-directional-drilling-co/laney-road-boring-wet-or-dry-77478905.jpg"}
+#   ]
 
-users = [
- {name: "Case", admin: true, wallet: 200, email: "case@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Candy", admin: false, wallet: 100, email: "candy@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Carl", admin: false, wallet: 100, email: "carl@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Cindy", admin: false, wallet: 100, email: "cindy@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Charlie", admin: false, wallet: 100, email: "charlie@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Carlos", admin: false, wallet: 100, email: "carlos@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Carrey", admin: false, wallet: 100, email: "carrey@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Champ", admin: false, wallet: 100, email: "champ@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Charlette", admin: false, wallet: 100, email: "charlette@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
- {name: "Laney", admin: true, wallet: 100, email: "laney@email.com", organization_id: "2", password: "password", password_confirmation: "password"},
- {name: "Lenard", admin: false, wallet: 100, email: "lenard@email.com", organization_id: "2", password: "password", password_confirmation: "password"}
-]
+# users = [
+#  {name: "Case", admin: true, wallet: 200, email: "case@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Candy", admin: false, wallet: 100, email: "candy@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Carl", admin: false, wallet: 100, email: "carl@example.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Cindy", admin: false, wallet: 100, email: "cindy@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Charlie", admin: false, wallet: 100, email: "charlie@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Carlos", admin: false, wallet: 100, email: "carlos@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Carrey", admin: false, wallet: 100, email: "carrey@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Champ", admin: false, wallet: 100, email: "champ@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Charlette", admin: false, wallet: 100, email: "charlette@email.com", organization_id: "1", password: "password", password_confirmation: "password"},
+#  {name: "Laney", admin: true, wallet: 100, email: "laney@email.com", organization_id: "2", password: "password", password_confirmation: "password"},
+#  {name: "Lenard", admin: false, wallet: 100, email: "lenard@email.com", organization_id: "2", password: "password", password_confirmation: "password"}
+# ]
 
 ideas = [
   {title: "Employee Party", category: "soc-and-net", short_desc: "We should have an Employee Party.", coffer: 327, user_id: 2, long_desc: "Twinkle, twinkle, little star, Wie ich frage mich, was du bist! Bis über die Welt so hoch, Wie ein Diamant im Himmel. Twinkle, twinkle, little star, Wie ich frage mich, was du bist! Twinkle, twinkle, little star, Wie ich frage mich, was du bist! Bis über die Welt so hoch, Wie ein Diamant im Himmel. Twinkle, twinkle, little star, Wie ich frage mich, was du bist!"},
@@ -47,7 +47,7 @@ ideas = [
   {title: "All employees should learn Spanish", category: "soc-and-net", short_desc: "All employees should learn Spanish.", coffer: 15, user_id: 1, long_desc: "The Spanish speaking populatioin in our area is growing and thriving.  Tap into this population as a potential market by requiring that our employees learn their language."},
   {title: "Employee of the Year !", category: "fin-and-ops", short_desc: "$1,000 Bonus for being the Employee of the year!", coffer: 327, user_id: 1, long_desc: "Did you ever fly a kite in bed? Did you ever walk with ten cats on your head? Did you ever milk this kind of cow? Well, we can do it. We know how. If you never did, you should. These things are fun and fun is good."},
   {title: "Host a monthly client party", category: "biz-dev", idea_support_url: "http://iaufrance.org/Content/Uploads/CMS/Images/barcelona-spain.jpg", short_desc: "We should host a party for our clients to mingle.", coffer: 203, user_id: 1, long_desc: "Brilla, brilla, estrellita, ¡Cómo me pregunto cuál usted es! Encima sobre del mundo tan arriba, Como un diamante en el cielo. Brilla, brilla, estrellita, ¡Cómo me pregunto cuál usted es! Brilla, brilla, estrellita, ¡Cómo me pregunto cuál usted es! Encima sobre del mundo tan arriba, Como un diamante en el cielo. Brilla, brilla, estrellita, ¡Cómo me pregunto cuál usted es!"},
-  {title: "Tap into Austin's live music scene! ", category: "biz-dev", idea_support_url: "http://www.austintexas.org/visit/music-scene/festivals/", short_desc: "We should target Austin's music festivals for marketing.", coffer: 488, user_id: 1, long_desc: "Austin has a thriving music industry!  Why not tap into this resource to market our cutting edge music related products?"},
+  {title: "Tap into Austin's live music scene! ", category: "biz-dev", idea_support_url: "http://www.austintexas.org/visit/music-scene/festivals/", short_desc: "We should target Austin's music festivals for marketing.", coffer: 488, user_id: 2, long_desc: "Austin has a thriving music industry!  Why not tap into this resource to market our cutting edge music related products?"},
 
 ]
 
@@ -59,24 +59,24 @@ ideas = [
 # ]
 
 
-organizations.each do |organization|
-  Organization.create(
-    name: organization[:name],
-    logo_url: organization[:logo_url]
-    )
-end
+# organizations.each do |organization|
+#   Organization.create(
+#     name: organization[:name],
+#     logo_url: organization[:logo_url]
+#     )
+# end
 
-users.each do |user|
-  User.create(
-    name: user[:name],
-    admin: user[:admin],
-    wallet: user[:wallet],
-    email: user[:email],
-    organization_id: user[:organization_id],
-    password: user[:password],
-    password_confirmation: user[:password_confirmation]
-  )
-end
+# users.each do |user|
+#   User.create(
+#     name: user[:name],
+#     admin: user[:admin],
+#     wallet: user[:wallet],
+#     email: user[:email],
+#     organization_id: user[:organization_id],
+#     password: user[:password],
+#     password_confirmation: user[:password_confirmation]
+#   )
+# end
 
 ideas.each do |idea|
   Idea.create(
