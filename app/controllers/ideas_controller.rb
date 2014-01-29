@@ -1,6 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
-  before_action :admin_rights, only: [:index, :edit, :update, :destroy]
+  before_action :admin_rights, only: [:index, :destroy]
   before_action :delete_associated_objects, only: [:destroy]
 
   # GET /ideas

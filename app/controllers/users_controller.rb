@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user_for_dashboard, only: [:show]
-  before_action :admin_rights, only: [:index, :new, :edit, :create, :update, :destroy]
+  before_action :admin_rights, only: [:index, :new, :create, :destroy]
   before_action :delete_associated_objects, only: [:destroy]
 
   # GET /users

@@ -18,9 +18,9 @@
       <% if (current_user.transactions.count > 0) %>
         <% my_contributions.each do |c| %>
           <tr>
-            <td><%= link_to Idea.find(c.idea_id).title, idea_path(c.idea_id) %></td>
+            <td><%= link_to c.title, idea_path(c.idea_id) %></td>
             <td><%= c.total_contribution %></td>
-            <td><%= Idea.find(c.idea_id).coffer %></td>
+            <td><%= c.coffer %></td>
           </tr>
         <% end %>
       <% end %>
