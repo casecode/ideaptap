@@ -13,6 +13,12 @@ module UsersHelper
 	end
 
 	def my_contributions
-		Transaction.find_by_sql(["SELECT a.idea_id, sum(a.amount) as total_contribution, b.title, b.coffer FROM transactions a INNER JOIN ideas b ON a.idea_id = b.id WHERE a.user_id = ? GROUP BY a.idea_id, b.title, b.coffer", current_user.id])
+		sql = "SELECT a.idea_id, sum(a.amount) as total_contribution, b.title, b.coffer " +
+					"FROM transactions a " +
+					"INNER JOIN ideas b ON a.idea_id = b.id " +
+					"WHERE a.user_id = ? " +
+					"GROUP BY a.idea_id, b.title, b.coffer " +
+					"ORDER BY sum(a.amount) DESC"
+		Transaction.find_by_sql([sql, current_user.id])
 	end
 end
